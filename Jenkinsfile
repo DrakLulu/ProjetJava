@@ -21,12 +21,14 @@ pipeline {
         sh 'mvn -B verify'
       }
     }
+
+  }
   post {
     always {
-      archiveArtifacts(artifacts: 'target/*.jar', fingerprint: true)
+      archiveArtifacts(artifacts: 'target/*.war', fingerprint: true)
       junit 'target/surefire-reports/*.xml'
 
     }
+
   }
-}
 }
