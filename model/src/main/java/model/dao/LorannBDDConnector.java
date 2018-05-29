@@ -9,45 +9,82 @@ import java.sql.Statement;
 /**
  * <h1>The Class BoulderDashBDDConnector.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Groupe 4, Louka, Guillaume et Charlotte.
  * @version 1.0
  */
 final class LorannBDDConnector {
 
-    /** The instance. */
-    private static LorannBDDConnector instance;
+	   /** The login. */
+		  private static String user = "root";
+		  //OR Online database user "root"
+		  
+		  /** The password. */
+		  private static String password = "";
+		  //OR Online database password "password"
+		
+		  /** The url. */
+		  private static String url = "jdbc:mysql://localhost/lorann?useSSL=false&serverTimezone=UTC";
+		  //OR Online database url http://151.80.46.117:8585/?server=db&username=root&db=lorann
+		  
+		  /**The result of the query. */
+		  static ResultSet result = null; 
+		  
+		  /** The Connection. */
+		  static Connection connection; 
+		  
+		  /** The Statement. */
+		  static Statement statement;
+		  
+		  /** The representation of the map in a string, from the DB. */
+		  static String mapstring;
 
-    /** The login. */
-    private static String                  user     = "root";
+		  /** Table of Elements that representing the map.*/
+		  Element[][] table = null; 
 
-    /** The password. */
-    private static String                  password = "";
-
-    /** The url. */
-    private static String                  url      = "jdbc:mysql://localhost/lorann?useSSL=false&serverTimezone=UTC";
-
-    /** The connection. */
-    private Connection                     connection;
-
-    /** The statement. */
-    private Statement                      statement;
-
+		
+		/** The constructor. */ 
+		public LorannBDDConnector() {
+			
+		}
+		
+		
+		/*
+		 * Connect to the DB
+		 * and get the lvl.
+		 */
+		 
+		public String start(){
+			
+	        try {
+	        	connection = DriverManager.getConnection(url, user, password);
+				statement = connection.createStatement();
+				String query = "SELECT contenu FROM `niveau` WHERE ID_Niveau = 1 ";
+				result = statement.executeQuery(query);
+			
+				while(result.next()) {
+				mapstring = result.getString("contenu");
+				//System.out.println(mapstring +" \n");
+				}
+		        
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} 
+	         return mapstring;
+		}
     
     
     
     
     
     
-    
-    
-    /**
+    /*
      * Instantiates a new Lorann BDD connector.
      */
     /*private LorannBDDConnector() {
         this.open();
     }
 
-    /**
+    /*
      * Gets the single instance of BoulderDashBDDConnector.
      *
      * @return single instance of BoulderDashBDDConnector
@@ -59,7 +96,7 @@ final class LorannBDDConnector {
         return instance;
     }
 
-    /**
+    /*
      * Sets the instance.
      *
      * @param instance
@@ -69,7 +106,7 @@ final class LorannBDDConnector {
         LorannBDDConnector.instance = instance;
     }
 
-    /**
+    /*
      * Open.
      *
      * @return true, if successful
@@ -86,7 +123,7 @@ final class LorannBDDConnector {
         return false;
     }
 
-    /**
+    /*
      * Execute query.
      *
      * @param query
@@ -102,7 +139,7 @@ final class LorannBDDConnector {
         return null;
     }
 
-    /**
+    /*
      * Prepare call.
      *
      * @param query
@@ -118,7 +155,7 @@ final class LorannBDDConnector {
         return null;
     }
 
-    /**
+    /*
      * Execute update.
      *
      * @param query
@@ -134,7 +171,7 @@ final class LorannBDDConnector {
         return 0;
     }
 
-    /**
+    /*
      * Gets the connection.
      *
      * @return the connection
@@ -143,7 +180,7 @@ final class LorannBDDConnector {
         return this.connection;
     }
 
-    /**
+    /*
      * Sets the connection.
      *
      * @param connection
@@ -153,7 +190,7 @@ final class LorannBDDConnector {
         this.connection = connection;
     }
 
-    /**
+    /*
      * Gets the statement.
      *
      * @return the statement
@@ -162,7 +199,7 @@ final class LorannBDDConnector {
         return this.statement;
     }
 
-    /**
+    /*
      * Sets the statement.
      *
      * @param statement
