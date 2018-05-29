@@ -32,10 +32,18 @@ final class LorannBDDConnector {
     /** The statement. */
     private Statement                      statement;
 
+    
+    
+    
+    
+    
+    
+    
+    
     /**
-     * Instantiates a new boulder dash BDD connector.
+     * Instantiates a new Lorann BDD connector.
      */
-    private LorannBDDConnector() {
+    /*private LorannBDDConnector() {
         this.open();
     }
 
@@ -44,7 +52,7 @@ final class LorannBDDConnector {
      *
      * @return single instance of BoulderDashBDDConnector
      */
-    public static LorannBDDConnector getInstance() {
+   /* public static LorannBDDConnector getInstance() {
         if (instance == null) {
             setInstance(new LorannBDDConnector());
         }
@@ -57,7 +65,7 @@ final class LorannBDDConnector {
      * @param instance
      *            the new instance
      */
-    private static void setInstance(final LorannBDDConnector instance) {
+    /*private static void setInstance(final LorannBDDConnector instance) {
         LorannBDDConnector.instance = instance;
     }
 
@@ -66,7 +74,7 @@ final class LorannBDDConnector {
      *
      * @return true, if successful
      */
-    private boolean open() {
+    /*private boolean open() {
         try {
             this.connection = DriverManager.getConnection(LorannBDDConnector.url, LorannBDDConnector.user,
                     LorannBDDConnector.password);
@@ -85,7 +93,7 @@ final class LorannBDDConnector {
      *            the query
      * @return the result set
      */
-    public ResultSet executeQuery(final String query) {
+  /*  public ResultSet executeQuery(final String query) {
         try {
             return this.getStatement().executeQuery(query);
         } catch (final SQLException e) {
@@ -101,7 +109,7 @@ final class LorannBDDConnector {
      *            the query
      * @return the java.sql. callable statement
      */
-    public java.sql.CallableStatement prepareCall(final String query) {
+    /*public java.sql.CallableStatement prepareCall(final String query) {
         try {
             return this.getConnection().prepareCall(query);
         } catch (final SQLException e) {
@@ -117,7 +125,7 @@ final class LorannBDDConnector {
      *            the query
      * @return the int
      */
-    public int executeUpdate(final String query) {
+   /* public int executeUpdate(final String query) {
         try {
             return this.statement.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
         } catch (final SQLException e) {
@@ -131,7 +139,7 @@ final class LorannBDDConnector {
      *
      * @return the connection
      */
-    public Connection getConnection() {
+  /*  public Connection getConnection() {
         return this.connection;
     }
 
@@ -141,7 +149,7 @@ final class LorannBDDConnector {
      * @param connection
      *            the new connection
      */
-    public void setConnection(final Connection connection) {
+   /* public void setConnection(final Connection connection) {
         this.connection = connection;
     }
 
@@ -150,7 +158,7 @@ final class LorannBDDConnector {
      *
      * @return the statement
      */
-    public Statement getStatement() {
+  /*  public Statement getStatement() {
         return this.statement;
     }
 
@@ -160,8 +168,12 @@ final class LorannBDDConnector {
      * @param statement
      *            the new statement
      */
-    public void setStatement(final Statement statement) {
+   /* public void setStatement(final Statement statement) {
         this.statement = statement;
     }
+    ***/
+    
+    
+    
 
 }

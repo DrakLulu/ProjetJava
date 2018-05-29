@@ -19,7 +19,7 @@ public interface IModel {
      * @return the example by id
      * @throws SQLException
      *             the SQL exception
-     */
+     
     Example getExampleById(int id) throws SQLException;
 
     /**
@@ -30,7 +30,7 @@ public interface IModel {
      * @return the example by name
      * @throws SQLException
      *             the SQL exception
-     */
+     
     Example getExampleByName(String name) throws SQLException;
 
     /**
@@ -39,6 +39,7 @@ public interface IModel {
      * @return the all examples
      * @throws SQLException
      *             the SQL exception
-     */
+     
     List<Example> getAllExamples() throws SQLException;
+    */
 }
