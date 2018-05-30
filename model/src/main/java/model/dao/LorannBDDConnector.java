@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 /**
  * <h1>The Class BoulderDashBDDConnector.</h1>
@@ -39,31 +40,70 @@ final class LorannBDDConnector {
 		  static String mapstring;
 
 		  /** Table of Elements that representing the map.*/
-		  Element[][] table = null; 
-
+		  Element[][] table = null;
+		  
+		  /** The number of the lvl chosen by the User*/
+		  private int n;
 		
-		/** The constructor. */ 
+		  
+		  
+		/** The constructor.
+		 * 
+		 */ 
 		public LorannBDDConnector() {
 			
+			userchoice();
 		}
+		
+		
+		/* 
+		 * Get the lvl choice of the User.
+		 */
+		 public void userchoice() {
+	    	 System.out.println("Quel niveau voulez vous jouez?");
+				Scanner sc = new Scanner(System.in);
+		        String choice = sc.nextLine() ;
+		     
+				if (choice.contains("1")) {
+					this.n = 1; 
+				}
+				else if (choice.contains("2")){
+					this.n = 2;
+				}
+				else if (choice.contains("3")) {
+					this.n = 3;
+				}
+				
+				else if (choice.contains("4")) {
+					this.n = 4;
+				}
+				else if (choice.contains("5")) {
+					this.n = 5;
+				}	
+				
+				else {
+					System.out.println("Niveau choisit: 1");
+					this.n = 1;
+					}
+	     }
 		
 		
 		/*
 		 * Connect to the DB
 		 * and get the lvl.
 		 */
-		 
-		public String start(){
+		public String start(int n){
+			this.n = n; 
 			
 	        try {
 	        	connection = DriverManager.getConnection(url, user, password);
 				statement = connection.createStatement();
-				String query = "SELECT contenu FROM `niveau` WHERE ID_Niveau = 1 ";
+				String query = "CALL ChooseMap( "+ this.n +" )";
 				result = statement.executeQuery(query);
 			
 				while(result.next()) {
 				mapstring = result.getString("contenu");
-				//System.out.println(mapstring +" \n");
+			
 				}
 		        
 			} catch (SQLException e) {

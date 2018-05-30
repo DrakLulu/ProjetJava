@@ -20,6 +20,8 @@ public class ControllerFacade implements IController {
 
     /** The model. */
     private final IModel model;
+    
+
 
     /**
      * Instantiates a new controller facade.
@@ -33,8 +35,8 @@ public class ControllerFacade implements IController {
         super();
         this.view = view;
         this.model = model;
+        
     }
-
     /**
      * Start.
      *
