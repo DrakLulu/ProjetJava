@@ -1,10 +1,12 @@
 package model.dao;
 
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import model.element.Element;
@@ -94,13 +96,14 @@ final class LorannBDDConnector {
 		 * Connect to the DB
 		 * and get the lvl.
 		 */
-		public String start(int n){
+		public String start(int n)
+		{
 			this.n = n; 
 			
 	        try {
 	        	connection = DriverManager.getConnection(url, user, password);
 				statement = connection.createStatement();
-				String query = "CALL ChooseMap( "+ this.n +" )";
+				String query = "CALL ChooseMap("+ this.n +")";
 				result = statement.executeQuery(query);
 			
 				while(result.next()) {
@@ -113,7 +116,13 @@ final class LorannBDDConnector {
 			} 
 	         return mapstring;
 		}
-    
+		
+		public static ArrayList<Image> getImage(String path) 
+		{
+				
+		// chercher les images dans les docs et 
+			return null;
+		}
     
     
     
