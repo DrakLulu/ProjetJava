@@ -17,7 +17,8 @@ import model.element.Element;
  * @author Groupe 4, Louka, Guillaume et Charlotte.
  * @version 1.0
  */
-final class LorannBDDConnector {
+final class LorannBDDConnector 
+{
 
 	   /** The login. */
 		  private static String user = "root";
@@ -54,7 +55,8 @@ final class LorannBDDConnector {
 		/** The constructor.
 		 * 
 		 */ 
-		public LorannBDDConnector() {
+		public LorannBDDConnector() 
+		{
 			
 			userchoice();
 		}
@@ -63,7 +65,8 @@ final class LorannBDDConnector {
 		/* 
 		 * Get the lvl choice of the User.
 		 */
-		 public void userchoice() {
+		 public void userchoice() 
+		 {
 	    	 System.out.println("Quel niveau voulez vous jouez?");
 				Scanner sc = new Scanner(System.in);
 		        String choice = sc.nextLine() ;
@@ -115,17 +118,14 @@ final class LorannBDDConnector {
 				e.printStackTrace();
 			} 
 	         return mapstring;
-<<<<<<< HEAD
+
 		}
 		
 		public static ArrayList<Image> getImage(String path) 
 		{
-				
-		// chercher les images dans les docs et 
 			return null;
 		}
-    
-    
+}
     
     
     
@@ -261,11 +261,4 @@ final class LorannBDDConnector {
         this.statement = statement;
     }
     ***/
-    
-    
-    
 
-=======
-		}    
->>>>>>> c8eb4be763716a9356ada152a4b79f7e219515c9
-}
