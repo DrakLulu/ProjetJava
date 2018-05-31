@@ -17,7 +17,7 @@ import model.element.Element;
  * @author Groupe 4, Louka, Guillaume et Charlotte.
  * @version 1.0
  */
-final class LorannBDDConnector 
+public final class LorannBDDConnector 
 {
 
 	   /** The login. */
@@ -99,9 +99,9 @@ final class LorannBDDConnector
 		 * Connect to the DB
 		 * and get the lvl.
 		 */
-		public String start(int n)
+		public String start()
 		{
-			this.n = n; 
+			userchoice(); 
 			
 	        try {
 	        	connection = DriverManager.getConnection(url, user, password);
