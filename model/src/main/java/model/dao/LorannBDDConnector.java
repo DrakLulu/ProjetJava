@@ -21,15 +21,15 @@ final class LorannBDDConnector {
 
 	   /** The login. */
 		  private static String user = "root";
-		  //OR Online database user "root"
+		  //OR Online database: user "root"
 		  
 		  /** The password. */
 		  private static String password = "";
-		  //OR Online database password "password"
+		  //OR Online database: password "password"
 		
 		  /** The url. */
 		  private static String url = "jdbc:mysql://localhost/lorann?useSSL=false&serverTimezone=UTC";
-		  //OR Online database url http://151.80.46.117:8585/?server=db&username=root&db=lorann
+		  //OR Online database: url http://151.80.46.117:8585/?server=db&username=root&db=lorann
 		  
 		  /**The result of the query. */
 		  static ResultSet result = null; 
@@ -115,6 +115,7 @@ final class LorannBDDConnector {
 				e.printStackTrace();
 			} 
 	         return mapstring;
+<<<<<<< HEAD
 		}
 		
 		public static ArrayList<Image> getImage(String path) 
@@ -264,4 +265,7 @@ final class LorannBDDConnector {
     
     
 
+=======
+		}    
+>>>>>>> c8eb4be763716a9356ada152a4b79f7e219515c9
 }
