@@ -55,7 +55,7 @@ public final class Model {
 		
 		public Element[][] mapping(String map) {
 			 this.map= map; 
-			Element[][] tbl = new Element[20][12];
+			Element[][] tbl = new Element[12][20];
 			char caract; 
 			int y = 0;
 			int x = 0;
@@ -66,92 +66,92 @@ public final class Model {
 					switch(caract)
 					{
 						case 'e':
-							tbl[x][y] = new Nothing();
+							tbl[y][x] = new Nothing();
 							break;
 						
 						case 'O': 
-							tbl[x][y] = new BallBone();
+							tbl[y][x] = new BallBone();
 							break;
 								
 						case '-':
-							tbl[x][y] = new HBone();				
+							tbl[y][x] = new HBone();				
 							break;
 							
 						case 'I':
-							tbl[x][y] = new VBone();					
+							tbl[y][x] = new VBone();					
 							break;	
 							
 						case '1':
-							tbl[x][y] = new Purse();					
+							tbl[y][x] = new Purse();					
 							break;
 						
 						case '2':
-							tbl[x][y] = new Purse();				
+							tbl[y][x] = new Purse();				
 							break;
 							
 						case '3':
-							tbl[x][y] = new Purse();
+							tbl[y][x] = new Purse();
 							break;
 							
 						case '4':
-							tbl[x][y] = new Purse();					
+							tbl[y][x] = new Purse();					
 							break;	
 							
 						case 'w':
-							tbl[x][y] = new Nothing();						
+							tbl[y][x] = new Nothing();						
 							break;	
 							
 						case 'A':
-							tbl[x][y] = new Nothing();
+							tbl[y][x] = new Nothing();
 							demon[0] = new Kyracj(y,x);
 							break;
 							
 						case 'B':
-							tbl[x][y] = new Nothing();
+							tbl[y][x] = new Nothing();
 							demon[1] = new Arrbarr(y,x);						
 							break;
 							
 						case 'C':
-							tbl[x][y] = new Nothing();
+							tbl[y][x] = new Nothing();
 							demon[2] = new Maarcg(y,x);
 							break;
 							
 						case 'D':
-							tbl[x][y] = new Nothing();
+							tbl[y][x] = new Nothing();
 							demon[3] = new Cargyv(y,x);
 							break;
 							
 						case 'Q':
-							tbl[x][y] = new Crystal();					
+							tbl[y][x] = new Crystal();					
 							break;
 						
 						case 'Y':
-							tbl[x][y] = new Door();					
+							tbl[y][x] = new Door();					
 							break;
 						
 						case '@':
-							tbl[x][y] = new Nothing();
+							tbl[y][x] = new Nothing();
 							lorann = new Hero(y,x);
 							break;
 							
 						case '#':
-							tbl[x][y]= new Nothing();
+							tbl[y][x]= new Nothing();
 							break;
 							
 						case '+':
-							tbl[x][y]= new Nothing();
+							tbl[y][x]= new Nothing();
 							break;	
 						
 						case ';':
-							x++;
-							y=-1;
+							y++;
+							x = -1;
 							break;
 							
 						default:
-							tbl[x][y] = new Nothing();					
+							tbl[y][x] = new Nothing();					
 							break;
 					}
-					y++;
+					x++;
 					
 					
 				}
@@ -159,8 +159,8 @@ public final class Model {
 				  int l =0;
 			      int h =0;
 			        
-			       for (l = 0; l<20; l++) {
-			        	for(h = 0; h<12; h++) {
+			       for (l = 0; l<12; l++) {
+			        	for(h = 0; h <20; h++) {
 			        		System.out.print(tbl[l][h].getSprite());
 			        	}
 			        	System.out.println("");
@@ -205,8 +205,8 @@ public final class Model {
 			  int l =0;
 		      int h =0;
 		        
-		       for (l = 0; l<20; l++) {
-		        	for(h = 0; h <12; h++) {
+		       for (l = 0; l<12; l++) {
+		        	for(h = 0; h <20; h++) {
 		        		System.out.print(tbl[l][h].getSprite());
 		        	}
 		        	System.out.println("");
@@ -247,4 +247,5 @@ public final class Model {
     public List<Example> getAllExamples() throws SQLException {
         return ExampleDAO.getAllExamples();
     }*/
+
 

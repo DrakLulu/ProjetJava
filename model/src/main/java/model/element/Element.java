@@ -27,7 +27,7 @@ public abstract class Element
 
 	
 	
-	public static Image getImage() {
+	public Image getImage() {
 		return image;
 	}
 
