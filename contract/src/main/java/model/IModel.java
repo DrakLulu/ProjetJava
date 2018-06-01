@@ -1,45 +1,30 @@
 package model;
 
+import java.awt.Image;
 import java.sql.SQLException;
 import java.util.List;
+
 
 /**
  * <h1>The Interface IModel.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Groupe 4, Louka, Guillaume & Charlotte
  * @version 1.0
  */
 public interface IModel {
 
-    /**
-     * Gets the example by id.
-     *
-     * @param id
-     *            the id
-     * @return the example by id
-     * @throws SQLException
-     *             the SQL exception
-     
-    Example getExampleById(int id) throws SQLException;
+	Element[][] mapping(String map);
 
-    /**
-     * Gets the example by name.
-     *
-     * @param name
-     *            the name
-     * @return the example by name
-     * @throws SQLException
-     *             the SQL exception
-     
-    Example getExampleByName(String name) throws SQLException;
+	Hero getLorann();
 
-    /**
-     * Gets the all examples.
-     *
-     * @return the all examples
-     * @throws SQLException
-     *             the SQL exception
-     
-    List<Example> getAllExamples() throws SQLException;
-    */
+	void setLorann(Hero lorann);
+
+	Demons[] getDemon();
+
+	void setDemon(Demons[] demon);
+
+	void setTable(Element[][] table);
+
+	Image getImage(int x, int y);
+
 }

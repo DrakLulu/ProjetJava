@@ -20,21 +20,21 @@ public abstract class MotionElement extends Element
 	public void moveUp() 
 	{
 		setX(x);
-		setY(y--);
+		setY(y-1);
 	}
 	public void moveDown() 
 	{
 		setX(x);
-		setY(y++);
+		setY(y+1);
 	}
 	public void moveLeft() 
 	{
-		setX(x--);
+		setX(x-1);
 		setY(y);
 	}
 	public void moveRight() 
 	{
-		setX(x++);
+		setX(x+1);
 		setY(y);
 	}
 	public void noMove() 

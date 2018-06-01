@@ -4,7 +4,7 @@ import java.awt.Image;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Observable;
-
+import view.IView;
 import model.dao.ExampleDAO;
 import model.dao.LorannBDDConnector;
 import model.element.Element;
@@ -22,13 +22,14 @@ import model.element.motionless.Nothing;
 import model.element.motionless.Purse;
 import model.element.motionless.VBone;
 
+
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Groupe 4, Louka, Guillaume & Charlotte
  * @version 1.0
  */
-public final class Model {
+public final class Model implements IModel, IView {
 
     /**
      * Instantiates a new model facade.
@@ -53,6 +54,10 @@ public final class Model {
 		
 		
 		
+		/* (non-Javadoc)
+		 * @see model.IModel1#mapping(java.lang.String)
+		 */
+		@Override
 		public Element[][] mapping(String map) {
 			 this.map= map; 
 			Element[][] tbl = new Element[12][20];
@@ -169,21 +174,37 @@ public final class Model {
 		}
 
 
+		/* (non-Javadoc)
+		 * @see model.IModel1#getLorann()
+		 */
+		@Override
 		public Hero getLorann() {
 			return lorann;
 		}
 
 
+		/* (non-Javadoc)
+		 * @see model.IModel1#setLorann(model.element.mobile.Hero)
+		 */
+		@Override
 		public void setLorann(Hero lorann) {
 			this.lorann = lorann;
 		}
 
 
+		/* (non-Javadoc)
+		 * @see model.IModel1#getDemon()
+		 */
+		@Override
 		public Demons[] getDemon() {
 			return demon;
 		}
 
 
+		/* (non-Javadoc)
+		 * @see model.IModel1#setDemon(model.element.mobile.Demons[])
+		 */
+		@Override
 		public void setDemon(Demons[] demon) {
 			this.demon = demon;
 		}
@@ -194,11 +215,19 @@ public final class Model {
 		}
 
 
+		/* (non-Javadoc)
+		 * @see model.IModel1#setTable(model.element.Element[][])
+		 */
+		@Override
 		public void setTable(Element[][] table) {
 			this.table = table;
 		}
 
 
+		/* (non-Javadoc)
+		 * @see model.IModel1#getImage(int, int)
+		 */
+		@Override
 		public Image getImage(int x, int y) {
 			Element [][] tbl = getTable();
 			
@@ -219,33 +248,42 @@ public final class Model {
 				return null; 
 			}
 		}
+
+
+
+		
+		
+		/* 
+		 /////To Cast the Spell, WIP//////
+		 
+		 public void throwSpell() {
+		// Spell cast in front of Lorann, from right to left, range of 4
+		int y = getLorann().getY(); 
+		int x = getLorann().getX();
+		this.setSpellexist(true);
+		System.out.println("Spell cast!");
+		for (int i=1; i<5; i++) {
+			for(int j =y; j<(y+5); j++) {				
+				if(table[y][x+1].getPermeability() != Permeability.Blocking) {
+					spell = new Spell(y, x+1, "Image"+j+"");
+					System.out.println("Image"+j+"");
+					System.out.println(y +", "+ x+1);
+					updatedModel();
+					try {
+						Thread.sleep(5);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					} 
+				else break; 
+			}
+		}
+		this.setSpellexist(false);	
 	}
+*/
+		
+}
 
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleById(int)
-     
-    @Override
-    public Example getExampleById(final int id) throws SQLException {
-        return ExampleDAO.getExampleById(id);
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleByName(java.lang.String)
-     
-    @Override
-    public Example getExampleByName(final String name) throws SQLException {
-        return ExampleDAO.getExampleByName(name);
-    }
-
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getAllExamples()
-     
-    @Override
-    public List<Example> getAllExamples() throws SQLException {
-        return ExampleDAO.getAllExamples();
-    }*/
 
 

@@ -5,7 +5,7 @@ import model.element.Permeability;
 public class Nothing extends  MotionlessElement
 {
 	private static char Nothing =' ';
-	private static String imageName=" ";
+	private static String imageName="";
 	
 	public Nothing() 
 	{

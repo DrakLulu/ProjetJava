@@ -3,16 +3,10 @@ package view;
 /**
  * <h1>The Interface IView.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Groupe 4, Louka, Guillaume & Charlotte
  * @version 1.0
  */
 public interface IView {
 
-    /**
-     * Display message.
-     *
-     * @param message
-     *            the message
-     */
-    void displayMessage(String message);
+  
 }
