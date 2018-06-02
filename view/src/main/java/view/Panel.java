@@ -5,23 +5,32 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.util.Observable;
 import java.util.Observer;
+
 import javax.swing.JPanel;
 
-import model.IModel;
+import model.Model;
+import model.ThreadSpell;
+import model.element.Element;
+import model.element.motion.Demons;
+
 
 public class Panel extends JPanel implements Observer{
 
-	private Image imagei = null;
-	private IModel model;
+	Image imagei = null;
 	
-	public Panel(IModel model) {
-		
+
+	private Model model;
+	private ThreadSpell threadSpell; 
+	
+	public Panel(Model model) {
 		this.model = model;
 		this.model.addObserver(this);
+	
 	}
 
 	@Override
 	public void update(Observable o, Object arg) {
+		
 		repaint();
 	}
 	
@@ -43,9 +52,9 @@ public class Panel extends JPanel implements Observer{
 			x=0;
 		} 
 		
-		Demon [] demon = model.getDemon();
+		Demons [] demon = model.getDemon();
 		
-		for(Demon dem : demon) {
+		for(Demons dem : demon) {
 			if(dem == null) continue; 
 			imagei = dem.getImage();
 			if(imagei != null)

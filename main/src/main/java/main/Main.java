@@ -7,6 +7,7 @@ import controller.ControllerFacade;
 import model.IModel;
 import controller.Controller;
 import model.Model;
+import view.EndFrame;
 import view.Frame;
 
 /**
@@ -24,7 +25,12 @@ public abstract class Main {
      *            the arguments
      */
     public static void main(final String[] args) {
-        final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new Model());
+		Model model = new Model();
+		Controller controller = new Controller(model);
+		Frame frame = new Frame(model, controller);
+	    controller.play();
+	    frame.dispose(); 
+	    EndFrame end = new EndFrame(controller);
         /*
          * WIP
          * 

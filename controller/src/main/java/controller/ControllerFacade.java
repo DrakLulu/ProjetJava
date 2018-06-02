@@ -13,6 +13,7 @@ import view.IView;
  * @author Groupe 4, Louka, Guillaume & Charlotte
  * @version 1.0
  */
+
 public class ControllerFacade implements IController {
 
     /** The view. */
@@ -21,7 +22,7 @@ public class ControllerFacade implements IController {
     /** The model. */
     private final IModel model;
     
-
+ 
 
     /**
      * Instantiates a new controller facade.
