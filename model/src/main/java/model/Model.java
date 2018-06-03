@@ -55,9 +55,7 @@ public class Model extends Observable
 		 *@param map
 		 *			the represented string of the map.
 		 */
-		
-		
-		
+	
 		/* (non-Javadoc)
 		 * @see model.IModel1#mapping(java.lang.String)
 		 */
@@ -238,38 +236,7 @@ public class Model extends Observable
 		public void setyDoor(int yDoor) {
 			this.yDoor = yDoor;
 		}	
-		
-		
-		/* 
-		 /////To Cast the Spell, WIP//////
-		 
-		 public void throwSpell() {
-		// Spell cast in front of Lorann, from right to left, range of 4
-		int y = getLorann().getY(); 
-		int x = getLorann().getX();
-		this.setSpellexist(true);
-		System.out.println("Spell cast!");
-		for (int i=1; i<5; i++) {
-			for(int j =y; j<(y+5); j++) {				
-				if(table[y][x+1].getPermeability() != Permeability.Blocking) {
-					spell = new Spell(y, x+1, "Image"+j+"");
-					System.out.println("Image"+j+"");
-					System.out.println(y +", "+ x+1);
-					updatedModel();
-					try {
-						Thread.sleep(5);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					} 
-				else break; 
-			}
-		}
-		this.setSpellexist(false);	
-	}
-*/
-		
+	
 }
 
 

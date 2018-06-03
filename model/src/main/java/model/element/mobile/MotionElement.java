@@ -17,35 +17,32 @@ public abstract class MotionElement extends Element
 		this.setX(x);
 		this.setY(y); 
 	}
-	
-	public void moveRight() {
-		setX(x+1); 
-		setY(y);
-		
-	}
-
 
 	public void noMove() {
 		setX(x);
 		setY(y);
 	}
 
-
-	public void moveLeft() {
-		setX(x-1);
-		setY(y);
-	}
-
-
-	public void moveUp() {
-		setY(y+1);
+	public void moveLeft(int x, int y) {
 		setX(x);
-	}
-
-
-	public void moveDown() {
 		setY(y-1);
+	}
+
+	public  void moveUp(int x, int y) {
+		setY(y);
+		setX(x-1);
+	}
+
+	public void moveRight(int x, int y) {
 		setX(x);
+		setY(y+1);
+		
+	}
+
+	public void moveDown(int x, int y) {
+		setX(x+1);
+		setY(y);
+		
 	}
 
 	public boolean isAlive() {

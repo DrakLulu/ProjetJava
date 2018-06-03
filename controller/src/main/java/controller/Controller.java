@@ -75,7 +75,10 @@ public abstract class Controller {
 						break; 
 				} 
 			}
-	
+			if (model.isSpellexist() ==true ) {
+				moveSpell();
+				this.model.updatedModel();
+			}
 		
 			ifWin(); 
 			ifDead();
@@ -248,7 +251,123 @@ public abstract class Controller {
 		setUserOrder(UserOrder.NOMOVE);
 	}
 	
+public void throwSpell() {
+		
+		
+		int x = model.getLorann().getX();
+		int y = model.getLorann().getY();
+		Spell spell = new Spell(x, y, "fireball_1.png");
+		model.setSpell(spell); 
+		model.setSpellexist(true);
+		Element[][] tbl = model.getTable();
+		String dir = model.getLorann().getImagei();
+		model.getSpell().setdir(dir);
+		moveSpell();
+	}
+	
+	
+	private void checkDeathDemon() {
+		int x = model.getSpell().getX();
+		int y = model.getSpell().getY();
+		
+		for(int i = 0; i< model.getDemon().length; i++) {
+			Demons d = model.getDemon()[i];
+			if(d != null) {
+					int a = model.getDemon()[i].getX();
+					int b = model.getDemon()[i].getY();
+					if(a == x && b== y){
+					model.getDemon()[i] = null; 
+				}
+			}
+		}
+	}
 
+	public void moveSpell() {
+		Element[][] tbl = model.getTable();
+			
+			if (model.isSpellexist() ==true ) {
+				int x = model.getSpell().getX();
+				int y = model.getSpell().getY();
+				int a = model.getxDoor();
+				int b = model.getyDoor();
+				
+				String dir = model.getSpell().getdir();
+				
+				switch(dir) 
+				{
+				case "lorann_b.png":
+					
+	                if (tbl[x+1][y].getPermeability() != Permeability.Blocking && x+1 < 12 && y+1 < 20 && y-1 > -1 && x > -1)
+	                {
+	                	int nbr = (int)((Math.random()*10%4)+1);
+	                	Spell spell = new Spell(x+1, y, "fireball_1.png");
+	                	model.setSpell(spell);
+	                	model.getSpell().setdir(dir);
+	                	model.getSpell().moveDown(x, y);
+						model.getSpell().loadImage("fireball_"+nbr+".png");
+						checkDeathDemon();
+							 x = x+1;
+	                }else {
+		                model.setSpellexist(false);
+		                model.setSpell(null);}
+		                break;
+
+	            case "lorann_r.png" :
+	            
+	               if (tbl[x][y+1].getPermeability() != Permeability.Blocking && x+1 < 12 && y+1 < 20 && y-1 > -1 && x > -1)
+	                {
+	                	 int nbr = (int)((Math.random()*10%4)+1);
+	                	 Spell spell = new Spell(x+1, y, "fireball_1.png");
+	                	 model.setSpell(spell);
+	                	 model.getSpell().setdir(dir);
+	                	 model.getSpell().moveRight(x, y); 
+						 model.getSpell().loadImage("fireball_"+nbr+".png");
+						 checkDeathDemon();
+						 y = y+1;
+					   }else {
+		                model.setSpellexist(false);
+		                model.setSpell(null);}
+		            	break; 
+	            case "lorann_u.png" :
+	              if (tbl[x-1][y].getPermeability() != Permeability.Blocking && x+1 < 12 && y+1 < 20 && y-1 > -1 && x > -1)
+	                {
+	            	    int nbr = (int)((Math.random()*10%4)+1);
+	            	    Spell spell = new Spell(x-1, y, "fireball_1.png");
+	            	    model.setSpell(spell);
+	            	    model.getSpell().setdir(dir);
+	            		model.getSpell().moveUp(x, y);
+						model.getSpell().loadImage("fireball_"+nbr+".png");
+						checkDeathDemon();
+							x = x-1;
+	                }else {
+		              	model.setSpellexist(false);
+		                model.setSpell(null);} 
+		                break;
+
+	            case "lorann_l.png" :
+	                if (tbl[x][y-1].getPermeability() != Permeability.Blocking && x+1 < 12 && y+1 < 20 && y-1 > -1 && x > -1)
+	                {
+		                int nbr = (int)((Math.random()*10%4)+1);
+		                Spell spell = new Spell(x, y-1, "fireball_1.png");
+		                model.setSpell(spell);
+		                model.getSpell().setdir(dir);
+		                model.getSpell().moveLeft(x, y);
+		                model.getSpell().loadImage("fireball_"+nbr+".png");
+						checkDeathDemon();
+						y = y-1;
+	                } else {
+		                model.setSpellexist(false);
+		                model.setSpell(null);}
+		                break; 
+	    
+				default:
+					System.out.println("default");
+					model.setSpellexist(false);
+					model.setSpell(null);
+					break;
+			}	
+			}
+		}
 	
 //Getter and Setter
 	public UserOrder getUserOrder() 
