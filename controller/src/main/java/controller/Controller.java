@@ -252,11 +252,8 @@ public abstract class Controller {
 	}
 	
 public void throwSpell() {
-		
-		
-		int x = model.getLorann().getX();
-		int y = model.getLorann().getY();
-		Spell spell = new Spell(x, y, "fireball_1.png");
+
+		Spell spell = new Spell(lorannX, lorannY, "fireball_1.png");
 		model.setSpell(spell); 
 		model.setSpellexist(true);
 		Element[][] tbl = model.getTable();
