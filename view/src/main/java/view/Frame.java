@@ -14,24 +14,24 @@ import controller.UserOrder;
 import model.Model;
 import model.ThreadSpell;
 
-
-public class Frame extends JFrame implements KeyListener, IView {
-	
+public class Frame extends JFrame implements KeyListener {
+// Controller 
 	Panel panel;
 	private int OrdertoPerform;
 	private Controller controller; 
 	JLabel lab = new JLabel();
 	
 	public Frame(Model model, Controller controller) {
-		
+		Panel panel = new Panel(model);
 		this.controller = controller;
+		
 		this.setTitle("jeu");
 		this.setSize(700,450);
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
 		this.setBackground(Color.BLACK);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		Panel panel = new Panel(model);
+		
 		panel.setLayout(new BorderLayout());
 		lab.setForeground(Color.white);
 		lab.setText("Score: " + controller.getScore());
@@ -40,8 +40,8 @@ public class Frame extends JFrame implements KeyListener, IView {
 		addKeyListener(this);
 		
 	}
-		
-		
+	
+	
 	@Override
 	public void keyPressed(KeyEvent key){
 		lab.setText("Score: " + controller.getScore());
