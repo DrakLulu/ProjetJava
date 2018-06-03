@@ -2,13 +2,12 @@ package model.element.motionless;
 
 import model.element.Permeability;
 
-public class Nothing extends  MotionlessElement
-{
-	private static char Nothing =' ';
-	private static String imageName="";
+public class Nothing extends State{
 	
-	public Nothing() 
-	{
-		super(Nothing, Permeability.Penetrable, imageName);
+	public final static char nothing= ' ';
+	public Nothing() {
+		super(nothing, Permeability.Permeable, "");
+		
 	}
+
 }

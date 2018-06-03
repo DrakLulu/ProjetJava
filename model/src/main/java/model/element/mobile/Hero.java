@@ -1,25 +1,16 @@
 package model.element.mobile;
 
 import model.element.Permeability;
+import model.element.mobile.MotionElement;
 
 public class Hero extends MotionElement
 {
-	private static char Hero ='@';
-	private static String LorannU="lorann_u.png";
-	private static String LorannD="lorann_b.png";
-	private static String LorannL="lorann_l.png";
-	private static String LorannR="lorann_r.png";
+	public final static char Lorann= '@';
+	public final static String Image1="lorann_b.png";
 	
-	
-	public static String LorannState= LorannD;
-	
-	public Hero(int x, int y) {
-		super(Hero, Permeability.Penetrable, LorannState);
-		setX(x);
-		setY(y);
-	}
 
+	public Hero(int x,int y) {
+		super(Lorann, x, y, Image1, Permeability.Permeable);
 
-
-
+	}	
 }

@@ -1,17 +1,17 @@
 package model.element.mobile;
 
 import model.element.Permeability;
+import model.element.mobile.Demons;
 
-public class Maarcg extends Demons
-{
-	private static char Maarcg ='C';
-	private static String imageName="monster_4.png";
+public class Maarcg extends Demons {
+
+	public final static char Maarcg= 'C';
+	public final static String ImageC="monster_3.png";
+
 	
-	public Maarcg(int x, int y) 
-	{
-		super(Maarcg, Permeability.Penetrable, imageName);
-		setX(x);
-		setY(y);
-	}
+	public Maarcg(int x, int y) {
+		super(x, y, Maarcg, ImageC, Permeability.Blocking);
+	
+		}
 
 }

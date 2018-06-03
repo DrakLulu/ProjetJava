@@ -8,7 +8,7 @@ public abstract class State extends MotionlessElement
 	
 	protected State(char sprite, Permeability permeability, String imageName)
 	{
-		super(sprite, permeability, imageName);
+		super(sprite, imageName, permeability);
 	}
 
 	

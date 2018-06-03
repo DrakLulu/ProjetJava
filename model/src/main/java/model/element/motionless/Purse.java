@@ -2,14 +2,14 @@ package model.element.motionless;
 
 import model.element.Permeability;
 
-public class Purse extends State 
+public class Purse extends MotionlessElement
 {
-	private static char Purse ='1';
-	private static String imageName="purse.png"; 
+	public final static char Purse= '1';
+	public final static String ImageC= "purse.png";
 	
-	
-	public  Purse () 
+	public Purse() 
 	{
-		super(Purse, Permeability.Penetrable, imageName);
+		super(Purse, ImageC, Permeability.Permeable);
 	}
+
 }

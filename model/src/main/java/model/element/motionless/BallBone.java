@@ -2,16 +2,13 @@ package model.element.motionless;
 
 import model.element.Permeability;
 
-public class BallBone extends MotionlessElement
+public class BallBone extends  State
 {
-	private static char Ballbone ='O';
-	private static String imageName = "bone.png";
 	
-	public BallBone() 
-	{
-		super(Ballbone, Permeability.Blocking, imageName);
+	public final static char BoneBall= 'O';
+	public final static String ImageC="bone.png";
+	public BallBone() {
+		super(BoneBall, Permeability.Blocking, ImageC);
 	}
-	
-	
 
 }

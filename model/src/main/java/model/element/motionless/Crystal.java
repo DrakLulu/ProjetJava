@@ -1,16 +1,15 @@
 package model.element.motionless;
 import model.element.Permeability;
 
-
-public class Crystal extends State 
+public class Crystal extends MotionlessElement
 {
-	private static char Crystal ='Q';
-	private static String imageName="crystal_ball.png"; 
+	public final static char Crystal= 'Q';
+	private final static String imageC ="crystal_ball.png";
 	
-	
-	public  Crystal () 
+
+	public Crystal() 
 	{
-		super(Crystal, Permeability.Penetrable, imageName);
+		super(Crystal, imageC, Permeability.Permeable);
 	}
-	//get set etat
+	
 }

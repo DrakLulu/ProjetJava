@@ -1,18 +1,15 @@
 package model.element.mobile;
 
 import model.element.Permeability;
+import model.element.mobile.Demons;
 
-public class Arrbarr extends Demons
-{
-	private static char Arrbarr ='B';
-	private static String imageName="monster_1.png";
+public class Arrbarr extends Demons {
+	public final static char Arrbarr= 'B';
+	public final static String ImageB="monster_2.png";
+
+	public Arrbarr(int x, int y) {
+		super(x, y, Arrbarr, ImageB,Permeability.Blocking);
 	
-	
-	public Arrbarr(int x, int y) 
-	{
-		super(Arrbarr, Permeability.Penetrable, imageName);
-		setX(x);
-		setY(y);
 	}
 
 }
