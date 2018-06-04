@@ -7,11 +7,4 @@
   </parent>
   <artifactId>controller</artifactId>
   <name>lorann.controller</name>
-  <dependencies>
-    <dependency>
-      <groupId>fr.exia</groupId>
-      <artifactId>contract</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
-    </dependency>
-  </dependencies>
 </project>
