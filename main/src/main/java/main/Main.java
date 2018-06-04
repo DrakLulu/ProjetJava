@@ -3,7 +3,6 @@ package main;
 import java.sql.SQLException;
 
 import view.ViewFacade;
-import controller.ControllerFacade;
 import model.IModel;
 import controller.Controller;
 import model.Model;

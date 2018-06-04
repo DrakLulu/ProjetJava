@@ -1,17 +1,14 @@
 package controller;
 
-import java.awt.Image;
-
 import model.Model;
-import model.ThreadSpell;
 import model.element.Element;
 import model.element.Permeability;
 import model.element.motionless.Crystal;
 import model.element.motionless.Nothing;
 import model.element.motionless.Open_Door;
 import model.element.motionless.Purse;
-import model.element.motion.Demons;
-import model.element.motion.Spell;
+import model.element.mobile.Demons;
+import model.element.mobile.Spell;
 
 
 public abstract class Controller {
@@ -140,7 +137,7 @@ public abstract class Controller {
 	            case 1 :
 	                if (tbl[y+1][x].getPermeability() != Permeability.Blocking)
 	                {
-	                m.moveRight();
+	                m.moveRight(x,y);
 	                }
 	                else 
 	                {
@@ -151,7 +148,7 @@ public abstract class Controller {
 	            case 2 :
 	                if (tbl[y][x+1].getPermeability() != Permeability.Blocking)
 	                {
-	                m.moveUp();
+	                m.moveUp(x,y);
 	                }
 	                else 
 	                {
@@ -162,7 +159,7 @@ public abstract class Controller {
 	            case 3 :
 	                if (tbl[y-1][x].getPermeability() != Permeability.Blocking)
 	                {
-	                m.moveLeft();
+	                m.moveLeft(x,y);
 	                }
 	                else 
 	                {
@@ -173,7 +170,7 @@ public abstract class Controller {
 	            case 4 :
 	                if (tbl[y][x-1].getPermeability() != Permeability.Blocking)
 	                {
-	                m.moveDown();
+	                m.moveDown(x,y);
 	                }
 	                else 
 	                {
@@ -192,7 +189,6 @@ public abstract class Controller {
 	        
 	    }
 
-	
 	public void movement() 
 	{
 		switch(userOrder) 
@@ -205,7 +201,7 @@ public abstract class Controller {
 			
 			if ((tbl[lorannX+1][lorannY]).getPermeability() != Permeability.Blocking) 
 			{
-				model.getLorann().moveRight();
+				model.getLorann().moveRight(lorannX,lorannY);
 				model.getLorann().loadImage("lorann_b.png");
 			}
 			else model.getLorann().noMove();
@@ -213,7 +209,7 @@ public abstract class Controller {
 			
 		case LEFT:
 			if (tbl[lorannX-1][lorannY].getPermeability() != Permeability.Blocking) {
-				model.getLorann().moveLeft();
+				model.getLorann().moveLeft(lorannX, lorannY);
 				model.getLorann().loadImage("lorann_u.png");
 			
 				}
@@ -222,7 +218,7 @@ public abstract class Controller {
 			
 		case UP: 
 			if (tbl[lorannX][lorannY+1].getPermeability() != Permeability.Blocking) {
-				model.getLorann().moveUp();
+				model.getLorann().moveUp(lorannX, lorannY);
 				model.getLorann().loadImage("lorann_r.png");
 				}
 			else model.getLorann().noMove();
@@ -230,18 +226,15 @@ public abstract class Controller {
 			
 		case DOWN: 
 			if (tbl[lorannX][lorannY-1].getPermeability() != Permeability.Blocking) {
-				model.getLorann().moveDown();
+				model.getLorann().moveDown(lorannX, lorannY);
 				model.getLorann().loadImage("lorann_l.png");
 				
 				}
 			else model.getLorann().noMove();
 			break;
 		
-		case SPACE:	
-			model.setSpellexist(true);
-			Thread threadSpell = new Thread(new ThreadSpell(this, model));
-			threadSpell.run();
-			//throwSpell();
+		case SPACE:
+			throwSpell();
 			break;
 			
 		default: 
@@ -251,42 +244,37 @@ public abstract class Controller {
 		setUserOrder(UserOrder.NOMOVE);
 	}
 	
-public void throwSpell() {
+	public void throwSpell() {
 
 		Spell spell = new Spell(lorannX, lorannY, "fireball_1.png");
 		model.setSpell(spell); 
 		model.setSpellexist(true);
-		Element[][] tbl = model.getTable();
 		String dir = model.getLorann().getImagei();
 		model.getSpell().setdir(dir);
 		moveSpell();
 	}
 	
-	
 	private void checkDeathDemon() {
 		int x = model.getSpell().getX();
 		int y = model.getSpell().getY();
 		
-		for(int i = 0; i< model.getDemon().length; i++) {
-			Demons d = model.getDemon()[i];
+		for(int i = 0; i< dem.length; i++) {
+			Demons d = dem[i];
 			if(d != null) {
-					int a = model.getDemon()[i].getX();
-					int b = model.getDemon()[i].getY();
+					int a = dem[i].getX();
+					int b = dem[i].getY();
 					if(a == x && b== y){
-					model.getDemon()[i] = null; 
+					dem[i] = null; 
 				}
 			}
 		}
 	}
 
 	public void moveSpell() {
-		Element[][] tbl = model.getTable();
 			
 			if (model.isSpellexist() ==true ) {
 				int x = model.getSpell().getX();
 				int y = model.getSpell().getY();
-				int a = model.getxDoor();
-				int b = model.getyDoor();
 				
 				String dir = model.getSpell().getdir();
 				
