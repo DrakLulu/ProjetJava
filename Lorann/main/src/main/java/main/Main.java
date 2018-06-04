@@ -2,8 +2,12 @@ package main;
 
 import java.sql.SQLException;
 
+import controller.Controller;
 import controller.ControllerFacade;
+import model.Model;
 import model.ModelFacade;
+import view.EndFrame;
+import view.Frame;
 import view.ViewFacade;
 
 /**
@@ -21,7 +25,23 @@ public abstract class Main {
      *            the arguments
      */
     public static void main(final String[] args) {
-        final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+    		Model model = new Model();
+    		Controller controller = new Controller(model);
+    		Frame frame = new Frame(model, controller);
+    	    controller.play();
+    	    frame.dispose(); 
+    	    EndFrame end = new EndFrame(controller);
+    	}
+    	
+    	
+    	
+    	
+    	
+
+ 
+    	
+    	
+    	/*final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 
         try {
             controller.start();
@@ -29,5 +49,5 @@ public abstract class Main {
             exception.printStackTrace();
         }
     }
-
+*/
 }
