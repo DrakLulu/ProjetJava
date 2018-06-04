@@ -11,7 +11,7 @@ import model.element.mobile.Demons;
 import model.element.mobile.Spell;
 
 
-public abstract class Controller {
+public class Controller {
 	
 	private Model model;
 	private Element[][] tbl; 
