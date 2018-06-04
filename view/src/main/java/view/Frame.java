@@ -7,17 +7,18 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import controller.Controller;
 import controller.UserOrder;
 import model.Model;
-import model.ThreadSpell;
 
 public class Frame extends JFrame implements KeyListener {
-// Controller 
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	// Controller 
 	Panel panel;
-	private int OrdertoPerform;
 	private Controller controller; 
 	JLabel lab = new JLabel();
 	

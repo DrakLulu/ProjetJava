@@ -5,22 +5,25 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.JPanel;
 
 import model.Model;
-import model.ThreadSpell;
 import model.element.Element;
-import model.element.motion.Demons;
+import model.element.mobile.Demons;
 
 
 public class Panel extends JPanel implements Observer{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	Image imagei = null;
 	
 
 	private Model model;
-	private ThreadSpell threadSpell; 
 	
 	public Panel(Model model) {
 		this.model = model;

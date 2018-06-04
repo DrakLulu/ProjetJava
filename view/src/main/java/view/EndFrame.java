@@ -9,6 +9,10 @@ import javax.swing.JPanel;
 import controller.Controller;
 
 public class EndFrame extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JPanel pan = new JPanel();
 	JLabel lab = new JLabel();
 	Controller controller; 
