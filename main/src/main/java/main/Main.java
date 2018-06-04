@@ -1,9 +1,5 @@
 package main;
 
-import java.sql.SQLException;
-
-import view.ViewFacade;
-import model.IModel;
 import controller.Controller;
 import model.Model;
 import view.EndFrame;
