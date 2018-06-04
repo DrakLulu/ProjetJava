@@ -1,2 +1,4 @@
 
 model/src/main/java/model/dao/LorannBDDConnector.java
+contract/src/main/java/controller/IController.java
+contract/src/main/java/controller/IController.java
