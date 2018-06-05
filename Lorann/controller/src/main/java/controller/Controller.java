@@ -85,7 +85,6 @@ public class Controller  implements IController
 	 * It also manages to end the game if the player lose or win.
 	 * </p>
 	 */
-	@Override
 	public void play() 
 	{
 		setUserOrder(UserOrder.NOMOVE);
@@ -153,7 +152,7 @@ public class Controller  implements IController
 	 * Win condition method. 
 	 * This method says when the player can win the game by going on the Door.
 	 */
-	@Override
+
 	public void ifWin() 
 	{
 		
@@ -178,7 +177,7 @@ public class Controller  implements IController
 	 * Loose condition method.
 	 * This method says when the player loose the game by getting killed by the enemies.
 	 */
-	@Override
+
 	public void ifDead() {
 		int a ,b; 
 		for(IDemons dem : model.getDemon() ) {
@@ -198,7 +197,7 @@ public class Controller  implements IController
 	 * The Demons move randomly in 5 choice of movements : RIGHT, DOWN, LEFT, UP, NOMOVE.
 	 * 
 	 */
-	@Override
+
 	public void IA() 
     {
 		for(IDemons m : model.getDemon()) {
@@ -267,7 +266,7 @@ public class Controller  implements IController
 	 * The movement of the characters is defined here in function of the UserOrder.
 	 * 
 	 */
-	@Override
+
 	public void movement() 
 	{
 		switch(userOrder) 
@@ -329,7 +328,7 @@ public class Controller  implements IController
 	 * @see moveSpell().
 	 *  
 	 */
-	@Override
+
 	public void throwSpell() {
 
 		Spell spell = new Spell(lorannX, lorannY, "fireball_1.png");
@@ -363,7 +362,7 @@ public class Controller  implements IController
 	 * The sprite of the spell change randomly between 5 different to have an effect of blinking of the object.
 	 * In function of the direction at start, the spell go straight in this way and when the spell can't continue in the same line, it move in the opposite way.
 	 */
-	@Override
+
 	public void moveSpell() {
 			
 			if (model.isSpellexist() ==true ) {
@@ -453,7 +452,7 @@ public class Controller  implements IController
 	 * Getter of UserOrder
 	 * @return userOrder
 	 */
-	@Override
+
 	public UserOrder getUserOrder() 
 	{
 		return userOrder;
@@ -462,7 +461,7 @@ public class Controller  implements IController
 	 * Setter of UserOrder
 	 * @param userOrder
 	 */
-	@Override
+
 	public void setUserOrder(UserOrder userOrder) 
 	{
 		this.userOrder = userOrder;
@@ -472,7 +471,7 @@ public class Controller  implements IController
 	 * getter of Score
 	 * @return score
 	 */
-	@Override
+
 	public int getScore() {
 		return score;
 	/**
@@ -480,7 +479,7 @@ public class Controller  implements IController
 	 * @param score
 	 */
 	}
-	@Override
+
 	public void setScore(int score) {
 		this.score = score;
 	}
@@ -489,7 +488,7 @@ public class Controller  implements IController
 	 * getter of LorannX
 	 * @return lorannX
 	 */
-	@Override
+
 	public int getLorannX() {
 		return lorannX;
 	}
@@ -497,7 +496,7 @@ public class Controller  implements IController
 	 * setter of LorannX
 	 * @param lorannX
 	 */
-	@Override
+
 	public void setLorannX(int lorannX) {
 		this.lorannX = lorannX;
 	}
@@ -506,7 +505,7 @@ public class Controller  implements IController
 	 * getter of LorannY
 	 * @return lorannY
 	 */
-	@Override
+
 	public int getLorannY() {
 		return lorannY;
 	}
@@ -514,7 +513,7 @@ public class Controller  implements IController
 	 * setter of LorannY
 	 * @param lorannY
 	 */
-	@Override
+
 	public void setLorannY(int lorannY) {
 		this.lorannY = lorannY;
 	}
@@ -522,7 +521,7 @@ public class Controller  implements IController
 	 * getter of Tbl
 	 * @return tbl
 	 */
-	@Override
+
 	public IElement[][] getTbl() {
 		return tbl;
 		/**
@@ -530,7 +529,7 @@ public class Controller  implements IController
 		 * @param tbl
 		 */
 	}
-	@Override
+
 	public void setTbl(IElement[][] tbl) {
 		this.tbl = tbl;
 	}
@@ -540,7 +539,7 @@ public class Controller  implements IController
 	 * @return DoorX
 	 */
 	
-	@Override
+
 	public int getDoorX() {
 		return DoorX;
 	}
@@ -548,7 +547,7 @@ public class Controller  implements IController
 	 * setter of DoorX
 	 * @param DoorX
 	 */
-	@Override
+
 	public void setDoorX(int xDoor) {
 		this.DoorX = xDoor;
 	}
@@ -557,7 +556,7 @@ public class Controller  implements IController
 	 * getter of DoorY
 	 * @return DoorY
 	 */
-	@Override
+
 	public int getDoorY() {
 		return DoorY;
 	/**
@@ -565,7 +564,7 @@ public class Controller  implements IController
 	 * @param DoorY
 	 */
 	}
-	@Override
+
 	public void setDoorY(int yDoor) {
 		this.DoorY = yDoor;
 	}
