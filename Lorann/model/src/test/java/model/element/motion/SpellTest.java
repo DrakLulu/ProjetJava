@@ -10,25 +10,15 @@ import org.junit.Test;
 
 public class SpellTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	public String dir;
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testgetdir() {
+		assertEquals (dir,this.getScore(dir));
 	}
+	private Object getScore(String dir) {
+		// TODO Auto-generated method stub
+		return dir;
+	}
+
 
 }

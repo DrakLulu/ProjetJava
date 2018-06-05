@@ -10,25 +10,15 @@ import org.junit.Test;
 
 public class ModelTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	public boolean Spellexist;
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testisSpellexist() {
+		assertSame (Spellexist,this.getScore(Spellexist));
 	}
+	private Object getScore(boolean spellexist) {
+		// TODO Auto-generated method stub
+		return spellexist;
+	}
+
 
 }

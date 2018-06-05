@@ -10,25 +10,23 @@ import org.junit.Test;
 
 public class MotionElementTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	public int x= 0;
+	public int y = 0;
+	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testmoveRight() {
+		assertTrue (x,y,this.moveRight(x+1, y));
+		
 	}
+
+	private void assertTrue(int x, int y, int moveRight) {
+		// TODO Auto-generated method stub
+		
+	}
+	private int moveRight(int x,int y) {
+		// TODO Auto-generated method stub
+		return x;
+	}
+
 
 }

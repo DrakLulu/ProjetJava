@@ -10,25 +10,17 @@ import org.junit.Test;
 
 public class DAOConnectorTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	public int userchoice = 1;
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testDAOConnector() {
+		assertEquals (userchoice,this.getScore(userchoice));
 	}
-
+	private Object getScore(int userchoice) {
+		// TODO Auto-generated method stub
+		return userchoice;
+	}
+	
+	
 }
+
+

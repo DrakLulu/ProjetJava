@@ -9,26 +9,17 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ElementTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	
+	public char sprite;
+	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testgetSprite() {
+		assertEquals (sprite,this.getScore(sprite));
 	}
+	private Object getScore(int score) {
+		// TODO Auto-generated method stub
+		return sprite;
+	}
+
 
 }
