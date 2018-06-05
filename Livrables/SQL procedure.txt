@@ -1,0 +1,40 @@
+/* Implementation of the data base for the level of teh game lorann*/
+CREATE DATABASE Lorann;
+CREATE TABLE `lorann`.`Niveau` ( `ID_Niveau` INT(20) NOT NULL AUTO_INCREMENT, `contenu` text(300) NOT NULL, PRIMARY KEY (`ID_Niveau`)) ENGINE = MyISAM;
+
+/*Be careful to change the accespath to get the "salles.txt" file */
+LOAD DATA LOCAL INFILE "C:/Users/Charlotte/Documents/Cesi/PROJET A1/Projet 5/ressources/cryptes/salles.txt"
+INTO TABLE lorann.niveau
+FIELDS
+TERMINATED BY '\n'
+
+/*stored procedure*/
+DELIMITER |
+CREATE PROCEDURE ChooseMap (IN choice INT)
+BEGIN
+	SELECT contenu
+	FROM `niveau`
+	WHERE ID_Niveau = choice;
+END |
+DELIMITER ; 
+
+DELIMITER |
+
+
+CREATE PROCEDURE CreatLorannDB ()
+BEGIN
+CREATE TABLE `lorann`.`Niveau` ( `ID_Niveau` INT(20) NOT NULL AUTO_INCREMENT, `contenu` text(300) NOT NULL, PRIMARY KEY (`ID_Niveau`)) ENGINE = MyISAM;
+
+INSERT INTO niveau VALUES (1,"eeeeeeO-O---------Oe;eeeO--O2IeeeeeeeeeOO;eeeIe3eeIeeeeeeeeeeI;O--OeeeeIeee1eeeeeeI;Ie1eO---O-----OeeeeO;I1eeWDeeeeeeeQee@eY;Ie1eO---O-----OeeeeO;O--OeeeeIeee1eeeeeeI;eeeIe3eeIeeeeeeeeeeI;eeeO--O2IeeeeeeeeeOO;eeeeeeO-O---------Oe");
+
+INSERT INTO niveau VALUES (2,"eeOO---------------O;eOOeeeeeeeeeeeeeeeeI;OOeeeeeeeeee###ee@eI;OeYeO-------O1OeO--O;IeeeIeeeeAeeee|eeeeI;IeeeIeO-------O--OeI;IeeeIeeeeBeee1IeeeeI;IeeeO-------OeIeO--O;IeeeIeeeeCeee1IeeeeI;O++eIeO------OO--OeI;IQeeIeeeeDee1I1eWeeI;O---O--------O-----O");
+
+INSERT INTO niveau VALUES (3,"O-----O--------O--Oe;IeeeeeOe3e3e3eOOeeIO;Ie@eeeOOeeeeeOOeeeIO;IeeeeeeOOeeDeOeeeeIO;IeeeOOeeOOeeOOeeeeIO;IeOOOeeee+eOOeeeeeIO;OOOeeeAe+Q+eCeeOOWIO;Iee3eeeOe+eeeeeeOOIO;Ie3eeOOOeeBeeOOeeOOO;I3eeOOeeeeeeeeOOeeeO;O---O----------OOeYO;eOOOOOOOOOOOOOOOOOOO");
+
+INSERT INTO niveau VALUES (4,"eeO--O-----------Oee;eOOeeOeeeeeeeeeeeOOe;OOeeeeeO4O1O1O4OeWOO;IeeOOOeO-O-O-O-OOeeI;IeeOIIeeeeeeeeeIeeeI;IeeeIO-OeO---OeIOeeI;IeeOIIeeeO-OeeeIeeeI;IeeeOOeeeO-OeeYIOeeI;IeeO---#O------OOeeI;OOeeO2O2O3O2O2OOCQOO;eOOeeeeeeBeeDeeAeOOe;eeO--------------Oee");
+
+INSERT INTO niveau VALUES (5,"eeeeeeeeeeeeeeeeeeee;eO-----OOeeeeeeeeeee;O+eeeeeQO--Oeeeeeeee;IeO---Oeee1O--Oeeeee;IDeeeeeeeOeee1O--Oee;IeO--OeOeeeOeeee1O-O;IAeeeeeeeOeIeee@ee1I;IeO--OeOeeeOeeee1O-O;ICeeeeeeeOeee1O--Oee;IeO---Oeee1O--Oeeeee;OYeeeeeWO--Oeeeeeeee;eO-----OOeeeeeeeeeee;eeeeeeeeeeeeeeeeeeee");
+
+
+END |
+DELIMITER ; 
