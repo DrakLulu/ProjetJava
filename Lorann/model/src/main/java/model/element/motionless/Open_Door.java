@@ -1,8 +1,9 @@
 package model.element.motionless;
 
-import model.element.Permeability;
+import model.IOpen_Door;
+import model.Permeability;
 
-public class Open_Door extends MotionlessElement {
+public class Open_Door extends MotionlessElement implements IOpen_Door{
 	
 	public final static char Door= '$';
 	public final static String Image="gate_open.png";

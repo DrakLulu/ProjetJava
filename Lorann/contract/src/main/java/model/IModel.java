@@ -1,7 +1,9 @@
 package model;
 
+import java.awt.Image;
 import java.sql.SQLException;
 import java.util.List;
+
 
 /**
  * <h1>The Interface IModel.</h1>
@@ -11,7 +13,38 @@ import java.util.List;
  */
 public interface IModel {
 
-    /**
+    public IElement[][] mapping (String map);
+	
+	public void updatedModel();
+	
+	
+	public IHero getLorann();
+	public void setLorann(IHero hero);
+	
+	public ISpell getSpell();
+	public void setSpell(ISpell spell);
+	
+	public IDemons[] getDemon();
+	public void setDemon(IDemons[] demon);
+	
+	public IElement[][] getTable();
+	public void setTable(IElement[][] table, int x, int y);
+	
+	public Image getImage(int x, int y);
+	
+	public boolean isSpellexist();
+	public void setSpellexist(boolean spellexist);
+	
+	public int getxDoor();
+	public void setxDoor(int xDoor);
+	
+	public int getyDoor();
+	public void setyDoor(int yDoor);
+	
+	
+	
+	
+	/**
      * Gets the example by id.
      *
      * @param id
@@ -20,7 +53,7 @@ public interface IModel {
      * @throws SQLException
      *             the SQL exception
      */
-    Example getExampleById(int id) throws SQLException;
+    /*Example getExampleById(int id) throws SQLException;*/
 
     /**
      * Gets the example by name.
@@ -31,7 +64,7 @@ public interface IModel {
      * @throws SQLException
      *             the SQL exception
      */
-    Example getExampleByName(String name) throws SQLException;
+	/*Example getExampleByName(String name) throws SQLException;*/
 
     /**
      * Gets the all examples.
@@ -40,5 +73,5 @@ public interface IModel {
      * @throws SQLException
      *             the SQL exception
      */
-    List<Example> getAllExamples() throws SQLException;
+	/*List<Example> getAllExamples() throws SQLException;*/
 }

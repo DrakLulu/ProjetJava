@@ -1,6 +1,6 @@
 package model.element.motion;
 
-import model.element.Permeability;
+import model.Permeability;
 
 public class Arrbarr extends Demons {
 	public final static char Arrbarr= 'B';

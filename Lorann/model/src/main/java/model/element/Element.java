@@ -3,7 +3,10 @@ package model.element;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public abstract class Element 
+import model.IElement;
+import model.Permeability;
+
+public abstract class Element implements IElement
 {
 
 	private char sprite;
@@ -62,10 +65,6 @@ public abstract class Element
 		this.permeability = permeability;
 	}
 
-	public void setState(boolean state) {
-		
-	}
-
 	public String getImagei() {
 		return imagei;
 	}
@@ -74,4 +73,5 @@ public abstract class Element
 		this.imagei = imagei;
 	}		
 
+	
 }

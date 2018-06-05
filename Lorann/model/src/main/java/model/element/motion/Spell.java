@@ -1,9 +1,10 @@
 package model.element.motion;
 
-import model.element.Permeability;
+import model.ISpell;
+import model.Permeability;
 import model.element.motion.MotionElement;
 
-public class Spell extends MotionElement{
+public class Spell extends MotionElement implements ISpell{
 
 	public final static char Spell= '<';
 	public static String Image="fireball_1.png";

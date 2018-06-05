@@ -1,6 +1,6 @@
 package model.element.motion;
 
-import model.element.Permeability;
+import model.Permeability;
 
 public class Maarcg extends Demons {
 

@@ -1,8 +1,9 @@
 package model.element.motion;
 
-import model.element.Permeability;
+import model.IHero;
+import model.Permeability;
 
-public class Hero extends MotionElement
+public class Hero extends MotionElement implements IHero
 {
 	public final static char Lorann= '@';
 	public final static String Image1="lorann_b.png";

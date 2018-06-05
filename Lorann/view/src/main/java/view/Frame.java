@@ -7,9 +7,9 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import controller.Controller;
+import controller.IController;
 import controller.UserOrder;
-import model.Model;
+import model.IModel;
 
 
 public class Frame extends JFrame implements KeyListener {
@@ -19,10 +19,10 @@ public class Frame extends JFrame implements KeyListener {
 	private static final long serialVersionUID = 1L;
 	// Controller 
 	private Panel panel;
-	private Controller controller; 
+	private IController controller; 
 	private JLabel lab = new JLabel();
 	
-	public Frame(Model model, Controller controller) {
+	public Frame(IModel model, IController controller) {
 		panel = new Panel(model);
 		this.controller = controller;
 		

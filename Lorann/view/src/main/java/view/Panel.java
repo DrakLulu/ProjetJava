@@ -7,13 +7,12 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.swing.JPanel;
+import model.IDemons;
+import model.IElement;
+import model.IModel;
 
-import model.Model;
-import model.element.Element;
-import model.element.motion.Demons;
 
-
-public class Panel extends JPanel implements Observer{
+public class Panel extends JPanel implements Observer, IPanel{
 
 	/**
 	 * 
@@ -24,11 +23,11 @@ public class Panel extends JPanel implements Observer{
 	Image imagei = null;
 	
 
-	private Model model;
+	private IModel model;
 	
-	public Panel(Model model) {
+	public Panel(IModel model) {
 		this.model = model;
-		this.model.addObserver(this);
+		((Observable) this.model).addObserver(this);
 	
 	}
 
@@ -43,9 +42,9 @@ public class Panel extends JPanel implements Observer{
 		int y = 0;
 		int x = 0;
 		
-		Element[][] tbl = model.getTable();
-		for(Element[] te : tbl) {
-			for(Element t: te) {
+		IElement[][] tbl = model.getTable();
+		for(IElement[] te : tbl) {
+			for(IElement t: te) {
 				imagei = t.getImage();
 				if(imagei != null)
 				g.drawImage(imagei, (x*32), (y*32), this);
@@ -55,9 +54,9 @@ public class Panel extends JPanel implements Observer{
 			x=0;
 		} 
 		
-		Demons [] demon = model.getDemon();
+		IDemons [] demon = model.getDemon();
 		
-		for(Demons dem : demon) {
+		for(IDemons dem : demon) {
 			if(dem == null) continue; 
 			imagei = dem.getImage();
 			if(imagei != null)

@@ -1,7 +1,7 @@
 package model.element.motion;
 
+import model.Permeability;
 import model.element.Element;
-import model.element.Permeability;
 
 public abstract class MotionElement extends Element 
 {

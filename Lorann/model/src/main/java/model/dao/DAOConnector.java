@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import model.IDAOConnector;
 import model.element.Element;
 
 /**
@@ -16,7 +18,7 @@ import model.element.Element;
  * @author Groupe 4, Louka, Guillaume et Charlotte.
  * @version 1.0
  */
-public class DAOConnector {
+public class DAOConnector implements IDAOConnector{
 	
       /** The login. */
 	  private static String user = "root";

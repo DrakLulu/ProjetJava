@@ -1,5 +1,5 @@
 package model.element.motionless;
-import model.element.Permeability;
+import model.Permeability;
 
 public abstract class State extends MotionlessElement
 {

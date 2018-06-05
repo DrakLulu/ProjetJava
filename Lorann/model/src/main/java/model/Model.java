@@ -1,6 +1,8 @@
 package model;
 
 import java.awt.Image;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.Observable;
 
 import model.dao.DAOConnector;
@@ -20,12 +22,12 @@ import model.element.motionless.Nothing;
 import model.element.motionless.Purse;
 import model.element.motionless.VBone;
 
-public class Model extends Observable {
+public class Model extends Observable implements IModel{
 
-	private Hero hero;
-	private Spell spell; 
-	private Demons[] demon = new Demons[4];
-	private Element[][] table;
+	private IHero hero;
+	private ISpell spell; 
+	private IDemons[] demon = new Demons[4];
+	private IElement[][] table;
 	private boolean Spellexist = false;
 	private int xDoor;
 	private int yDoor;
@@ -33,8 +35,8 @@ public class Model extends Observable {
 	
 	public Model() {
 		DAOConnector daoConnector =  new DAOConnector(); 
-		String lol = daoConnector.start();
-		table = mapping(lol);
+		String mapS = daoConnector.start();
+		table = mapping(mapS);
 	}
 	
 	/*
@@ -43,9 +45,9 @@ public class Model extends Observable {
 	 *@param map
 	 *			the represented string of the map.
 	 */
-	public Element[][] mapping(String map) {
+	public IElement[][] mapping(String map) {
 		
-		Element[][] table = new Element[12][20];
+		table = new Element[12][20];
 		char caract; 
 		int y = 0;
 		int x = 0;
@@ -145,40 +147,40 @@ public class Model extends Observable {
 	}
 
 	
-	public Hero getLorann() {
+	public IHero getLorann() {
 		return hero;
 	}
-	public void setLorann(Hero hero) {
+	public void setLorann(IHero hero) {
 		this.hero = hero;
 	}
 
 
-	public Spell getSpell() {
+	public ISpell getSpell() {
 		return spell;
 	}
-	public void setSpell(Spell spell) {
+	public void setSpell(ISpell spell) {
 		this.spell = spell;
 	}
 
 	
-	public Demons[] getDemon() {
+	public IDemons[] getDemon() {
 		return demon;
 	}
-	public void setDemon(Demons[] demon) {
+	public void setDemon(IDemons[] demon) {
 		this.demon = demon;
 	}
 
 
-	public Element[][] getTable() {
+	public IElement[][] getTable() {
 		return table;
 	}
-	public void setTable(Element[][] table, int x, int y) {
+	public void setTable(IElement[][] table, int x, int y) {
 		this.table[y][x] = new Nothing();
 	}
 
 
 	public Image getImage(int x, int y) {
-		Element [][] tbl = getTable();
+		IElement [][] tbl = getTable();
 		
 		  int l =0;
 	      int h =0;
@@ -220,5 +222,6 @@ public class Model extends Observable {
 	}
 	public void setyDoor(int yDoor) {
 		this.yDoor = yDoor;
-	}	
+	}
+
 }

@@ -1,7 +1,7 @@
 package model.element.motionless;
 
+import model.Permeability;
 import model.element.Element;
-import model.element.Permeability;
 
 public abstract class MotionlessElement extends Element
 {	

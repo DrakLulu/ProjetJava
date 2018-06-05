@@ -1,14 +1,11 @@
 package main;
 
-import java.sql.SQLException;
-
 import controller.Controller;
-import controller.ControllerFacade;
+import controller.IController;
+import model.IModel;
 import model.Model;
-import model.ModelFacade;
 import view.EndFrame;
 import view.Frame;
-import view.ViewFacade;
 
 /**
  * <h1>The Class Main.</h1>
@@ -25,8 +22,8 @@ public abstract class Main {
      *            the arguments
      */
     public static void main(final String[] args) {
-    		Model model = new Model();
-    		Controller controller = new Controller(model);
+    		IModel model = new Model();
+    		IController controller = new Controller(model);
     		Frame frame = new Frame(model, controller);
     	    controller.play();
     	    frame.dispose(); 

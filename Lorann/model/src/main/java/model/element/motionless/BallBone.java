@@ -1,6 +1,6 @@
 package model.element.motionless;
 
-import model.element.Permeability;
+import model.Permeability;
 
 public class BallBone extends  State
 {

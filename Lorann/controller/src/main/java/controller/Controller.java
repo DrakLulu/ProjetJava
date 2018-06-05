@@ -1,19 +1,20 @@
 package controller;
 
-import model.Model;
-import model.element.Element;
-import model.element.Permeability;
+import model.IDemons;
+import model.IElement;
+import model.IModel;
+import model.Permeability;
 import model.element.motionless.Crystal;
 import model.element.motionless.Nothing;
 import model.element.motionless.Open_Door;
 import model.element.motionless.Purse;
-import model.element.motion.Demons;
 import model.element.motion.Spell;
 
-public class Controller {
+public class Controller  implements IController
+{
 	
-	private Model model;
-	private Element[][] tbl; 
+	private IModel model;
+	private IElement[][] tbl; 
 	private UserOrder userOrder;
 	private int score = 0; 
 
@@ -23,11 +24,11 @@ public class Controller {
 	public int DoorY;
 	boolean state = false;
 	
-	public Controller(Model model){
+	public Controller(IModel model){
 		this.model= model;
 	}
 
-	
+	@Override
 	public void play() 
 	{
 		setUserOrder(UserOrder.NOMOVE);
@@ -52,14 +53,12 @@ public class Controller {
 				switch(className) 
 				{
 					case '1': 
-						tbl[lorannX][lorannY].setState(state);
 						tbl[lorannX][lorannY] = new Nothing();
 						setScore(score+100);
 						break; 
 				
 					
 					case 'Q':
-						tbl[lorannX][lorannY].setState(state);
 						tbl[lorannX][lorannY] = new Nothing();
 						tbl[DoorY][DoorX] = new Open_Door();
 						this.model.updatedModel();
@@ -87,6 +86,7 @@ public class Controller {
 		}
 	}
 	
+	@Override
 	public void ifWin() 
 	{
 		
@@ -108,9 +108,10 @@ public class Controller {
 		}
 	}
 	
+	@Override
 	public void ifDead() {
 		int a ,b; 
-		for(Demons dem : model.getDemon() ) {
+		for(IDemons dem : model.getDemon() ) {
 			if(dem != null) {
 				a = dem.getX();
 				b = dem.getY();
@@ -123,9 +124,10 @@ public class Controller {
 		
 	}
 	
+	@Override
 	public void IA() 
     {
-		for(Demons m : model.getDemon()) {
+		for(IDemons m : model.getDemon()) {
 			if(m == null) continue;
 			int y = m.getX();
 			int x = m.getY();
@@ -187,6 +189,7 @@ public class Controller {
 	        
 	    }
 
+	@Override
 	public void movement() 
 	{
 		switch(userOrder) 
@@ -242,6 +245,7 @@ public class Controller {
 		setUserOrder(UserOrder.NOMOVE);
 	}
 	
+	@Override
 	public void throwSpell() {
 
 		Spell spell = new Spell(lorannX, lorannY, "fireball_1.png");
@@ -257,7 +261,7 @@ public class Controller {
 		int y = model.getSpell().getY();
 		
 		for(int i = 0; i< model.getDemon().length; i++) {
-			Demons d = model.getDemon()[i];
+			IDemons d = model.getDemon()[i];
 			if(d != null) {
 					int a = model.getDemon()[i].getX();
 					int b = model.getDemon()[i].getY();
@@ -268,6 +272,7 @@ public class Controller {
 		}
 	}
 
+	@Override
 	public void moveSpell() {
 			
 			if (model.isSpellexist() ==true ) {
@@ -351,62 +356,80 @@ public class Controller {
 			}	
 			}
 		}
+
 	
 //Getter and Setter
+	@Override
 	public UserOrder getUserOrder() 
 	{
 		return userOrder;
 	}
+	@Override
 	public void setUserOrder(UserOrder userOrder) 
 	{
 		this.userOrder = userOrder;
 	}
 	
 	
+	@Override
 	public int getScore() {
 		return score;
 	}
+	@Override
 	public void setScore(int score) {
 		this.score = score;
 	}
 
 	
+	@Override
 	public int getLorannX() {
 		return lorannX;
 	}
+	@Override
 	public void setLorannX(int lorannX) {
 		this.lorannX = lorannX;
 	}
 
-
+	
+	@Override
 	public int getLorannY() {
 		return lorannY;
 	}
+	@Override
 	public void setLorannY(int lorannY) {
 		this.lorannY = lorannY;
 	}
 
-
-	public Element[][] getTbl() {
+	@Override
+	public IElement[][] getTbl() {
 		return tbl;
 	}
-	public void setTbl(Element[][] tbl) {
+	@Override
+	public void setTbl(IElement[][] tbl) {
 		this.tbl = tbl;
 	}
 
 	
+	@Override
 	public int getDoorX() {
 		return DoorX;
 	}
+	@Override
 	public void setDoorX(int xDoor) {
 		this.DoorX = xDoor;
 	}
 
 	
+	@Override
 	public int getDoorY() {
 		return DoorY;
 	}
+	@Override
 	public void setDoorY(int yDoor) {
 		this.DoorY = yDoor;
 	}
+
 }
+
+
+
