@@ -27,10 +27,10 @@ public class DAOConnector implements IDAOConnector{
 	  /** The url. */
 	  private static String url = "jdbc:mysql://localhost/lorann?useSSL=false&serverTimezone=UTC";
 	  
-	  	static ResultSet result = null; 
-		static Connection connection; 
-		static Statement statement;
-		static String mapstring;
+	  private static ResultSet result = null; 
+	  private static Connection connection; 
+	  private static Statement statement;
+	  private static String mapstring;
 
 		Element[][] table = null; 
 
