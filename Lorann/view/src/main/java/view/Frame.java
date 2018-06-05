@@ -18,7 +18,7 @@ public class Frame extends JFrame implements KeyListener {
 	
 	private Panel panel;
 	private IController controller; 
-	private JLabel lab = new JLabel();
+	private JLabel lab;
 	/**
 	 * This builder launch the game into a Window. 
 	 * The Score is displayed in real time at the bottom left of the frame.
@@ -27,7 +27,9 @@ public class Frame extends JFrame implements KeyListener {
 	 */
 	public Frame(IModel model, IController controller) {
 		panel = new Panel(model);
+		lab = new JLabel();
 		this.controller = controller;
+		
 		
 		this.setTitle("jeu");
 		this.setSize(700,450);

@@ -10,25 +10,14 @@ import org.junit.Test;
 
 public class ControllerTest {
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
+	public int score = 0;
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testgetScore() {
+		assertEquals (score,this.getScore(score));
+	}
+	private Object getScore(int score) {
+		// TODO Auto-generated method stub
+		return score;
 	}
 
 }

@@ -11,8 +11,8 @@ import controller.IController;
 public class EndFrame extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
-	private JPanel pan = new JPanel();
-	private JLabel lab = new JLabel();
+	private JPanel pan; 
+	private JLabel lab;
 	private IController controller; 
 	/**
 	 * This method is called at the end of the game when the player win or lose.
@@ -20,6 +20,8 @@ public class EndFrame extends JFrame {
 	 * @param controller
 	 */
 	public EndFrame(IController controller) {
+		pan = new JPanel();
+		lab = new JLabel();
 		this.controller = controller;
 		this.setTitle("Votre score");
 		this.setBounds(0, 0, 200, 100);
