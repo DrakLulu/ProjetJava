@@ -16,11 +16,7 @@ public class Panel extends JPanel implements Observer, IPanel{
 
 	
 	private static final long serialVersionUID = 1L;
-
-
-	Image imagei = null;
-	
-
+	private Image imagei = null;
 	private IModel model;
 	
 	/**
@@ -47,6 +43,7 @@ public class Panel extends JPanel implements Observer, IPanel{
 	 * the third part is for the position of Lorann 
 	 * and the if loop is for spell.
 	 */
+	@Override
 	public void paintComponent(Graphics g){
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, 700, 700);
