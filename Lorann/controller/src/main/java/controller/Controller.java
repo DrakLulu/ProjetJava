@@ -524,12 +524,12 @@ public class Controller  implements IController
 
 	public IElement[][] getTbl() {
 		return tbl;
-		/**
-		 * setter of Tbl
-		 * @param tbl
-		 */
-	}
 
+	}
+	/**
+	 * setter of Tbl
+	 * @param tbl
+	 */
 	public void setTbl(IElement[][] tbl) {
 		this.tbl = tbl;
 	}
@@ -564,7 +564,6 @@ public class Controller  implements IController
 	 * @param DoorY
 	 */
 	}
-
 	public void setDoorY(int yDoor) {
 		this.DoorY = yDoor;
 	}
