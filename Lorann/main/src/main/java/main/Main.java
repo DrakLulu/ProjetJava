@@ -7,20 +7,20 @@ import model.Model;
 import view.EndFrame;
 import view.Frame;
 
-/**
- * <h1>The Class Main.</h1>
- *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
- */
+	 /**
+	 * <h1>The Class Main.</h1>
+	 *
+	 */
+ 
 public abstract class Main {
 
     /**
-     * The main method.
+     * The main method of the game. It calls the method of the Model, Controller and the Frame plus the EndFrame.
      *
      * @param args
      *            the arguments
      */
+	
     public static void main(final String[] args) {
     		IModel model = new Model();
     		IController controller = new Controller(model);

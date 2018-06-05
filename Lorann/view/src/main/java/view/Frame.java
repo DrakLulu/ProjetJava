@@ -13,15 +13,18 @@ import model.IModel;
 
 
 public class Frame extends JFrame implements KeyListener {
-/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
-	// Controller 
+	
 	private Panel panel;
 	private IController controller; 
 	private JLabel lab = new JLabel();
-	
+	/**
+	 * This builder launch the game into a Window. 
+	 * The Score is displayed in real time at the bottom left of the frame.
+	 * @param model
+	 * @param controller
+	 */
 	public Frame(IModel model, IController controller) {
 		panel = new Panel(model);
 		this.controller = controller;
@@ -42,7 +45,18 @@ public class Frame extends JFrame implements KeyListener {
 		
 	}
 	
-	
+	/**
+	 * The KeyPressed method receive the instructions of the player and set UserOrder with it.
+	 * The player can move Lorann to :
+	 * 
+	 * <li>Up</li>
+	 * <li>Left</li>
+	 * <li>Right</li>
+	 * <li>Down</li>
+	 * And launch the spell with :
+	 * <li>Space</li>
+	 * 
+	 */
 	@Override
 	public void keyPressed(KeyEvent key){
 		lab.setText("Score: " + controller.getScore());
@@ -75,13 +89,18 @@ public class Frame extends JFrame implements KeyListener {
 		}
 		
 	}
+	/**
+	 * Each time the player release the key, the method update the score.
+	 */
 	@Override
 	public void keyReleased(KeyEvent e) {
 		lab.setText("Score: " + controller.getScore());
 		
 	}
 
-
+	/**
+	 * Auto-generated method stub
+	 */
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub

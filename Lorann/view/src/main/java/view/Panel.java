@@ -14,9 +14,7 @@ import model.IModel;
 
 public class Panel extends JPanel implements Observer, IPanel{
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 
@@ -25,17 +23,30 @@ public class Panel extends JPanel implements Observer, IPanel{
 
 	private IModel model;
 	
+	/**
+	 * This Builder create a link between Panel, Observable and Model.
+	 * @param model
+	 */
 	public Panel(IModel model) {
 		this.model = model;
 		((Observable) this.model).addObserver(this);
 	
 	}
 
+	/**
+	 * The update method calls the repaint of the game Frame.
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		repaint();
 	}
-	
+	/**
+	 * The paintComponent method place correctly the pictures in the table.
+	 * The first for loop is to place the objects, 
+	 * the second for loop is to place the demons, 
+	 * the third part is for the position of Lorann 
+	 * and the if loop is for spell.
+	 */
 	public void paintComponent(Graphics g){
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, 700, 700);

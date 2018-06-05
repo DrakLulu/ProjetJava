@@ -14,9 +14,7 @@ import model.element.Element;
 
 /**
  * <h1>The Class BoulderDashBDDConnector.</h1>
- *
- * @author Groupe 4, Louka, Guillaume et Charlotte.
- * @version 1.0
+ * 
  */
 public class DAOConnector implements IDAOConnector{
 	
@@ -42,8 +40,7 @@ public class DAOConnector implements IDAOConnector{
 		userchoice();
 	}
 	/*
-	 * Connect to the DB
-	 * and get the lvl.
+	 * Connect to the DB and get the lvl.
 	 */
 	 
 	public String start(){
@@ -66,7 +63,10 @@ public class DAOConnector implements IDAOConnector{
          return mapstring;
 	}
 
-	
+	/**
+	 * This method allow the player to choose the level he wants to play. Between 1 and 5.
+	 * 
+	 */
 	 public void userchoice() 
 	 {
     	 System.out.println("Which level would you like to play?");

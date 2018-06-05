@@ -22,6 +22,15 @@ import model.element.motionless.Nothing;
 import model.element.motionless.Purse;
 import model.element.motionless.VBone;
 
+/**
+ * The model hierarchizes the different classes that will be used in the programm :
+ * <l>Hero</l>
+ * <l>Spell</l>
+ * <l>Demons</l>
+ * <l>The table</l>
+ * <l>Door</l>
+ * 
+ */
 public class Model extends Observable implements IModel{
 
 	private IHero hero;
@@ -32,7 +41,12 @@ public class Model extends Observable implements IModel{
 	private int xDoor;
 	private int yDoor;
 	
-	
+	/**
+	 * Builder of Model.
+	 * Instantiate the connection at the database with DAOConnector.
+	 * String 
+	 * 
+	 */
 	public Model() {
 		DAOConnector daoConnector =  new DAOConnector(); 
 		String mapS = daoConnector.start();
@@ -41,6 +55,7 @@ public class Model extends Observable implements IModel{
 	
 	/*
 	 *Create a table of element that represent the map.
+	 *All the letters wrote in the database are replaced by the sprites of the different elements.
 	 *
 	 *@param map
 	 *			the represented string of the map.
@@ -140,45 +155,86 @@ public class Model extends Observable implements IModel{
 			return table;
 	}
 	
-
+	/**
+	 * This method allow the link between the Observable and the Observer to repaint the level regularly.
+	 * 
+	 * @see java;util.Observable
+	 */
 	public void updatedModel() {
 		this.setChanged();
 		this.notifyObservers();
 	}
 
-	
+	/**
+	 * The getter of Hero.
+	 * @return hero
+	 */
 	public IHero getLorann() {
 		return hero;
+		
 	}
+	/**
+	 * The setter of Hero.
+	 * @param hero
+	 */
 	public void setLorann(IHero hero) {
 		this.hero = hero;
 	}
 
-
+	/**
+	 * The getter of Spell.
+	 * @return spell
+	 */
 	public ISpell getSpell() {
 		return spell;
 	}
+	/**
+	 * The setter of Spell.
+	 * @param spell
+	 */
 	public void setSpell(ISpell spell) {
 		this.spell = spell;
 	}
 
+	/**
+	 * The getter of Demons.
+	 * @return demon
+	 */
 	
 	public IDemons[] getDemon() {
 		return demon;
 	}
+	/**
+	 * The setter of Demons.
+	 * @param demon
+	 */
 	public void setDemon(IDemons[] demon) {
 		this.demon = demon;
 	}
 
-
+	/**
+	 * The getter of Element.
+	 * @return table
+	 */
 	public IElement[][] getTable() {
 		return table;
 	}
+	/**
+	 * The setter of Element.
+	 * @param table
+	 * @param x
+	 * @param y
+	 */
 	public void setTable(IElement[][] table, int x, int y) {
 		this.table[y][x] = new Nothing();
 	}
 
-
+	/**
+	 * This method print the sprite of an element in the table.
+	 * @param x
+	 * @param y
+	 * @return
+	 */
 	public Image getImage(int x, int y) {
 		IElement [][] tbl = getTable();
 		
@@ -200,26 +256,47 @@ public class Model extends Observable implements IModel{
 		}
 	}
 
-
+	/**
+	 * The boolean existence of the Spell (getter).
+	 * @return Spellexist
+	 */
 	public boolean isSpellexist() {
 		return Spellexist;
 	}
+	/**
+	 * The boolean existence of the Spell (setter).
+	 * @param spellexist
+	 */
 	public void setSpellexist(boolean spellexist) {
 		Spellexist = spellexist;
 	}
 
-	
+	/**
+	 * The getter of the Door (x).
+	 * @return xDoor
+	 */
 	public int getxDoor() {
 		return xDoor;
 	}
+	/**
+	 * The setter of the Door (x).
+	 * @param xDoor
+	 */
 	public void setxDoor(int xDoor) {
 		this.xDoor = xDoor;
 	}
 
-	
+	/**
+	 * The getter of the Door (y).
+	 * @return yDoor
+	 */
 	public int getyDoor() {
 		return yDoor;
 	}
+	/**
+	 * The setter of the Door (y).
+	 * @param yDoor
+	 */
 	public void setyDoor(int yDoor) {
 		this.yDoor = yDoor;
 	}

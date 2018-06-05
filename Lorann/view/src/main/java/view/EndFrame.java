@@ -9,14 +9,16 @@ import javax.swing.JPanel;
 import controller.IController;
 
 public class EndFrame extends JFrame {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private JPanel pan = new JPanel();
 	private JLabel lab = new JLabel();
 	private IController controller; 
-	
+	/**
+	 * This method is called at the end of the game when the player win or lose.
+	 * The score obtained is displayed in a new window.
+	 * @param controller
+	 */
 	public EndFrame(IController controller) {
 		this.controller = controller;
 		this.setTitle("Votre score");

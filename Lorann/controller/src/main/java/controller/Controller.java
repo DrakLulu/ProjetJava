@@ -10,29 +10,89 @@ import model.element.motionless.Open_Door;
 import model.element.motionless.Purse;
 import model.element.motion.Spell;
 
+/**
+ * <b>Controller is the class that transfer the informations from the view to the model</b>
+ * <p>
+ * The Controller needs some informations to know how the game elements are :
+ * <ul>
+ * <li>An Element table to place the objects</li>
+ * <li>The objects of the Demons and there locations</li>
+ * <li>Lorann and his locations</li>
+ * <li>A score used in the view to show the progression</li>
+ * <li>The state of the door that changes in the game</li>
+ * <li>The movements of the Spell and its uses</li>
+ * 
+ * </ul>
+ * </p>
+ * <p>
+ * For all of that, the Controller needs also the instructions given by the player that can be RIGHT, LEFT, UP, DOWN, NOMOVE, SPACE.
+ * </p>
+ * 
+ */
 public class Controller  implements IController
 {
-	
+	/**
+	 * Variables model.
+	 */
 	private IModel model;
+	/**
+	 * The table Element in where every sprite will be located and placed.
+	 * 
+	 * @see Element(char sprite, String imageI, Permeability permeability)
+	 */
 	private IElement[][] tbl; 
+	/**
+	 * The choice of instruction from the player.
+	 * 
+	 * @see enum UserOrder
+	 */
 	private UserOrder userOrder;
+	/**
+	 * The score. It increase for each Purse picked up.
+	 */
 	private int score = 0; 
-
+	/**
+	 * The values of the location in x of the hero in the table Element.
+	 */
 	public int lorannX;
+	/**
+	 * The values of the location in y of the hero in the table Element.
+	 */
 	public int lorannY; 
+	/**
+	 * The place of the Door. It is the location in x of the end of the level.
+	 */
 	public int DoorX;
+	/**
+	 * The place of the Door. It is the location in y of the end of the level.
+	 */
 	public int DoorY;
 	boolean state = false;
 	
+	/**
+	 * Builder Controller
+	 * A variable take the value of model.
+	 * @param model
+	 */
 	public Controller(IModel model){
 		this.model= model;
 	}
 
+	/**
+	 * Running game method.
+	 * <p>This method is in function while the game is turned on. 
+	 * It sends informations to the view to display the good sprites of the objects in function of their positions. 
+	 * It also manages to end the game if the player lose or win.
+	 * </p>
+	 */
 	@Override
 	public void play() 
 	{
 		setUserOrder(UserOrder.NOMOVE);
 		
+		/**
+		 * loop of placements of the character and the Door in the table while the game is running.
+		 */
 		while (model.getLorann().isAlive() != false) {
 			
 			setLorannY(model.getLorann().getY());
@@ -50,6 +110,10 @@ public class Controller  implements IController
 			char className = tbl[lorannX][lorannY].getSprite();
 			if (className == Purse.Purse || className == Crystal.Crystal ) 
 			{
+				/**
+				 * A switch that make a pickable object displayed or not.
+				 * 
+				 */
 				switch(className) 
 				{
 					case '1': 
@@ -85,7 +149,10 @@ public class Controller  implements IController
 			this.model.updatedModel();
 		}
 	}
-	
+	/**
+	 * Win condition method. 
+	 * This method says when the player can win the game by going on the Door.
+	 */
 	@Override
 	public void ifWin() 
 	{
@@ -107,7 +174,10 @@ public class Controller  implements IController
 			
 		}
 	}
-	
+	/**
+	 * Loose condition method.
+	 * This method says when the player loose the game by getting killed by the enemies.
+	 */
 	@Override
 	public void ifDead() {
 		int a ,b; 
@@ -123,7 +193,11 @@ public class Controller  implements IController
 		}
 		
 	}
-	
+	/**
+	 * The method of how the enemies work.
+	 * The Demons move randomly in 5 choice of movements : RIGHT, DOWN, LEFT, UP, NOMOVE.
+	 * 
+	 */
 	@Override
 	public void IA() 
     {
@@ -188,7 +262,11 @@ public class Controller  implements IController
 			}
 	        
 	    }
-
+	/** 
+	 * Method of how the moves work.
+	 * The movement of the characters is defined here in function of the UserOrder.
+	 * 
+	 */
 	@Override
 	public void movement() 
 	{
@@ -244,7 +322,13 @@ public class Controller  implements IController
 		}
 		setUserOrder(UserOrder.NOMOVE);
 	}
-	
+	/**
+	 * This method create the spell and launch it.
+	 * The direction of the spell is chosen with the actual direction of lorann at launch in the moveSpell method.
+	 * 
+	 * @see moveSpell().
+	 *  
+	 */
 	@Override
 	public void throwSpell() {
 
@@ -255,7 +339,10 @@ public class Controller  implements IController
 		model.getSpell().setdir(dir);
 		moveSpell();
 	}
-	
+	/**
+	 * This method is just a loop that checks if the spell hit the Demons and so if they will disappear.
+	 * 
+	 */
 	private void checkDeathDemon() {
 		int x = model.getSpell().getX();
 		int y = model.getSpell().getY();
@@ -271,7 +358,11 @@ public class Controller  implements IController
 			}
 		}
 	}
-
+	/**
+	 * moveSpell is a method that make the spell move in the direction of the player's character.
+	 * The sprite of the spell change randomly between 5 different to have an effect of blinking of the object.
+	 * In function of the direction at start, the spell go straight in this way and when the spell can't continue in the same line, it move in the opposite way.
+	 */
 	@Override
 	public void moveSpell() {
 			
@@ -358,71 +449,121 @@ public class Controller  implements IController
 		}
 
 	
-//Getter and Setter
+	/**
+	 * Getter of UserOrder
+	 * @return userOrder
+	 */
 	@Override
 	public UserOrder getUserOrder() 
 	{
 		return userOrder;
 	}
+	/**
+	 * Setter of UserOrder
+	 * @param userOrder
+	 */
 	@Override
 	public void setUserOrder(UserOrder userOrder) 
 	{
 		this.userOrder = userOrder;
 	}
 	
-	
+	/**
+	 * getter of Score
+	 * @return score
+	 */
 	@Override
 	public int getScore() {
 		return score;
+	/**
+	 * Setter of Score
+	 * @param score
+	 */
 	}
 	@Override
 	public void setScore(int score) {
 		this.score = score;
 	}
 
-	
+	/**
+	 * getter of LorannX
+	 * @return lorannX
+	 */
 	@Override
 	public int getLorannX() {
 		return lorannX;
 	}
+	/**
+	 * setter of LorannX
+	 * @param lorannX
+	 */
 	@Override
 	public void setLorannX(int lorannX) {
 		this.lorannX = lorannX;
 	}
 
-	
+	/**
+	 * getter of LorannY
+	 * @return lorannY
+	 */
 	@Override
 	public int getLorannY() {
 		return lorannY;
 	}
+	/**
+	 * setter of LorannY
+	 * @param lorannY
+	 */
 	@Override
 	public void setLorannY(int lorannY) {
 		this.lorannY = lorannY;
 	}
-
+	/**
+	 * getter of Tbl
+	 * @return tbl
+	 */
 	@Override
 	public IElement[][] getTbl() {
 		return tbl;
+		/**
+		 * setter of Tbl
+		 * @param tbl
+		 */
 	}
 	@Override
 	public void setTbl(IElement[][] tbl) {
 		this.tbl = tbl;
 	}
 
+	/**
+	 * getter of DoorX
+	 * @return DoorX
+	 */
 	
 	@Override
 	public int getDoorX() {
 		return DoorX;
 	}
+	/**
+	 * setter of DoorX
+	 * @param DoorX
+	 */
 	@Override
 	public void setDoorX(int xDoor) {
 		this.DoorX = xDoor;
 	}
 
-	
+	/**
+	 * getter of DoorY
+	 * @return DoorY
+	 */
 	@Override
 	public int getDoorY() {
 		return DoorY;
+	/**
+	 * setter of DoorY
+	 * @param DoorY
+	 */
 	}
 	@Override
 	public void setDoorY(int yDoor) {
