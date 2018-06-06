@@ -38,6 +38,7 @@ public class Frame extends JFrame implements KeyListener {
 		this.setLocationRelativeTo(null);
 		this.setBackground(Color.BLACK);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setAlwaysOnTop(true);
 		
 		panel.setLayout(new BorderLayout());
 		lab.setForeground(Color.white);

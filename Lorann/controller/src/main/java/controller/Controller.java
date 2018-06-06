@@ -352,7 +352,8 @@ public class Controller  implements IController
 					int a = model.getDemon()[i].getX();
 					int b = model.getDemon()[i].getY();
 					if(a == x && b== y){
-						model.getDemon()[i] = null; 
+						model.getDemon()[i] = null;
+						setScore(score-50);
 				}
 			}
 		}
