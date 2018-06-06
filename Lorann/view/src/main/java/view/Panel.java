@@ -81,7 +81,7 @@ public class Panel extends JPanel implements Observer, IPanel{
 			x = model.getSpell().getX();
 			y =	model.getSpell().getY();	
 			imagei = model.getSpell().getImage();
-			g.drawImage(imagei, x*32, y*32, this);
+			g.drawImage(imagei, y*32, x*32, this);
 		}
 	
 	}

@@ -378,10 +378,10 @@ public class Controller  implements IController
 	                if (tbl[x+1][y].getPermeability() != Permeability.Blocking && x+1 < 12 && y+1 < 20 && y-1 > -1 && x > -1)
 	                {
 	                	int nbr = (int)((Math.random()*10%4)+1);
-	                	Spell spell = new Spell(x+1, y, "fireball_1.png");
+	                	Spell spell = new Spell(x, y, "fireball_1.png");
 	                	model.setSpell(spell);
 	                	model.getSpell().setdir(dir);
-	                	model.getSpell().moveDown();
+	                	model.getSpell().moveRight();
 						model.getSpell().loadImage("fireball_"+nbr+".png");
 						checkDeathDemon();
 							 x = x+1;
@@ -395,10 +395,10 @@ public class Controller  implements IController
 	               if (tbl[x][y+1].getPermeability() != Permeability.Blocking && x+1 < 12 && y+1 < 20 && y-1 > -1 && x > -1)
 	                {
 	                	 int nbr = (int)((Math.random()*10%4)+1);
-	                	 Spell spell = new Spell(x+1, y, "fireball_1.png");
+	                	 Spell spell = new Spell(x, y, "fireball_1.png");
 	                	 model.setSpell(spell);
 	                	 model.getSpell().setdir(dir);
-	                	 model.getSpell().moveRight(); 
+	                	 model.getSpell().moveUp(); 
 						 model.getSpell().loadImage("fireball_"+nbr+".png");
 						 checkDeathDemon();
 						 y = y+1;
@@ -410,13 +410,13 @@ public class Controller  implements IController
 	              if (tbl[x-1][y].getPermeability() != Permeability.Blocking && x+1 < 12 && y+1 < 20 && y-1 > -1 && x > -1)
 	                {
 	            	    int nbr = (int)((Math.random()*10%4)+1);
-	            	    Spell spell = new Spell(x-1, y, "fireball_1.png");
+	            	    Spell spell = new Spell(x, y, "fireball_1.png");
 	            	    model.setSpell(spell);
 	            	    model.getSpell().setdir(dir);
-	            		model.getSpell().moveUp();
+	            		model.getSpell().moveLeft();
 						model.getSpell().loadImage("fireball_"+nbr+".png");
 						checkDeathDemon();
-							x = x-1;
+						x = x-1;
 	                }else {
 		              	model.setSpellexist(false);
 		                model.setSpell(null);} 
@@ -426,10 +426,10 @@ public class Controller  implements IController
 	                if (tbl[x][y-1].getPermeability() != Permeability.Blocking && x+1 < 12 && y+1 < 20 && y-1 > -1 && x > -1)
 	                {
 		                int nbr = (int)((Math.random()*10%4)+1);
-		                Spell spell = new Spell(x, y-1, "fireball_1.png");
+		                Spell spell = new Spell(x, y, "fireball_1.png");
 		                model.setSpell(spell);
 		                model.getSpell().setdir(dir);
-		                model.getSpell().moveLeft();
+		                model.getSpell().moveDown();
 		                model.getSpell().loadImage("fireball_"+nbr+".png");
 						checkDeathDemon();
 						y = y-1;
